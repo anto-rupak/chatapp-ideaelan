@@ -1,0 +1,40 @@
+ 
+<ion-header>
+        <ion-navbar>
+    <ion-title>Messaging</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let adminlist of adminListJson1; let i = index;">
+    <ion-card-content *ngIf='adminlist'>
+      
+        <ion-item   *ngIf='testtrue' (click)="detail(adminlist)">
+         <ion-avatar item-start>
+           <img src="{{adminlist.UserImage}}">
+         </ion-avatar>
+         <h2>{{adminlist.LastName}} {{adminlist.FirstName}}</h2>
+         <h3>{{adminlist.message}}<ion-badge *ngIf="adminlist.unReadMessage > 0" color="primary" style="float:right">{{adminlist.unReadMessage}} </ion-badge></h3>
+        
+       </ion-item>
+    
+    </ion-card-content>
+  </ion-list>
+  <ion-list *ngFor="let userlist of users; let i = index;">
+      <ion-card-content >
+        
+          <ion-item *ngIf='!testtrue'   (click)="detail(userlist)">
+           <ion-avatar item-start>
+             <img src="{{userlist.UserImage}}">
+           </ion-avatar>
+           <h2>{{userlist.LastName}} {{userlist.FirstName}}</h2>
+           <h3>{{userlist.newmessage}} <ion-badge *ngIf="userlist.unReadMessage > 0" color="primary" style="float:right">{{userlist.unReadMessage}} </ion-badge></h3>
+          
+         </ion-item>
+ 
+      </ion-card-content>
+    </ion-list>
+ 
+
+
+</ion-content>

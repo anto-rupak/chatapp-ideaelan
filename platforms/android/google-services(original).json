@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "77566553849",
+    "firebase_url": "https://ie-infinity.firebaseio.com",
+    "project_id": "ie-infinity",
+    "storage_bucket": "ie-infinity.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:77566553849:android:fab9e1a0504c5ea2",
+        "android_client_info": {
+          "package_name": "com.ideaelan.ieinfinity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "77566553849-3bok63612li90ulu0vlmqenqp5cc2vhs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcCJQXZMegdIGttq6uMb_toCoL_UYMGFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "77566553849-sfevc6n8qor3dtq2ui989q8n7p65einr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "77566553849-utg9djd4c6vhnfavtqt8p12hmtnanpst.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ideaelan.infinity"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

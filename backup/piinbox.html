@@ -1,0 +1,150 @@
+
+<ion-header>
+  <ion-navbar hideBackButton text-center>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Inbox</ion-title>
+  </ion-navbar>
+  <ion-row  [class.hide]="userType" class="rowalign">
+      <ion-col>
+        <p class="drop">Lab</p>
+      </ion-col>
+      <ion-col>
+        <ion-select  *ngIf='emptyDropdown' [(ngModel)]="labid" disabled="true" placeholder='No Records Found' multiple="false" (ionChange)="updateChange()">
+          </ion-select>
+          <ion-select  *ngIf='!emptyDropdown' [(ngModel)]="labid" placeholder='Lab' multiple="false" (ionChange)="updateChange()">
+            <ion-option *ngIf='emptyDropdown' value="0">No Records Found</ion-option>  
+          <ion-option *ngFor="let lab of userLabJson; let i = index;" selected="{{(i==0)}}" value="{{lab.GroupId}}">
+            {{lab.GroupName}}</ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-segment [(ngModel)]="page">
+        <ion-segment-button value="0" (click)="selectedTab(0)">
+          Access Request
+        </ion-segment-button>
+        <ion-segment-button value="1" (click)="selectedTab(1)">
+          Invoice Request
+        </ion-segment-button>
+        <ion-segment-button value="2" (click)="selectedTab(2)">
+          Supplies
+        </ion-segment-button>
+      </ion-segment>
+</ion-header>
+<ion-content >
+    <ion-slides class="forgot" #slider (ionSlideWillChange)="moveButton($event)">
+        <ion-slide>
+
+  <p class="dropdown">Lab Access Request</p>
+  <hr>
+    <ion-card-content *ngIf='!labStatus'>No Records Found</ion-card-content>
+    <ion-list *ngFor="let labAccess of userLabAccessJson; let i = index;">
+      <ion-card-content *ngIf='labStatus'>
+        <ion-list (click)='actionSheetMethod(labAccess)'  class="disp">
+         
+          <p class="cardcontents"><b>{{labAccess.UserName}}</b></p>
+        
+          <p class="cardcontents"> Date : {{labAccess.CreatedDate}}</p>
+    
+        </ion-list>
+      </ion-card-content>
+    </ion-list>
+  </ion-slide>
+
+
+
+  <ion-slide>
+  <p class="dropdown">Invoice</p>
+  <hr>
+    <!--Mofified by anto to change date-picker-->
+    <div>
+      <ion-item>
+          <ion-datetime picker date [(ngModel)]="event.startDate" max="2099" min="1990" (ionChange)="startdatetime($event)"></ion-datetime>
+          <ion-label> <button ion-button id="startbutton">Start Date</button><span
+            class="date_time">&nbsp;&nbsp;&nbsp;{{event.startDate | date: "MM-dd-yyyy"}}</span> </ion-label>
+        </ion-item>
+        </div>
+        <div>
+        <ion-item>
+            <ion-datetime picker date [(ngModel)]="event.endDate" (ionChange)="enddatetime($event)" max="2099" min="1990"></ion-datetime>
+            <ion-label> <button ion-button id="endbutton" >End Date</button><span
+              class="date_time">&nbsp;&nbsp;&nbsp;{{event.endDate | date: "MM-dd-yyyy"}}</span> </ion-label>
+          </ion-item>
+          </div>
+   
+  <div text-center><button ion-button (click)="labRequestButton()">Go</button></div>
+  <ion-card-content *ngIf='!invoiceStatus'>No Records Found</ion-card-content>
+  <ion-list *ngFor="let invoice of userInvoiceJson">
+    <ion-card-content *ngIf='invoiceStatus'>
+      <ion-list (click)='invoiceRequest(invoice)' [ngSwitch]=invoice.Status class="disp">
+        
+        <p class="cardcontents"><b>{{invoice.InvoiceNumber}}</b></p>
+        <p class="cardcontents"> Lab Name : {{invoice.LabName}}</p>
+          <p class="cardcontents"> Facility : {{invoice.FacilityName}}</p>
+          <p class="cardcontents"> From : {{invoice.FromDate | date: "MM-dd-yyyy "}}</p>
+          <p class="cardcontents"> To : {{invoice.ToDate | date: "MM-dd-yyyy "}}</p>
+          <p   *ngIf='!invoice.TotalAmount' class="cardcontents"> Total : 0.00 USD</p>
+          <p  *ngIf='invoice.TotalAmount' class="cardcontents"> Total : {{invoice.TotalAmount | number:'1.2-2'}} USD</p>
+      
+          <div *ngSwitchCase="'Approved'" class="cardcontents">Status :<span class="approved"> {{invoice.Status}}</span></div>
+          <div *ngSwitchCase="'Payment Received (Partially)'" class="cardcontents">Status :<span class="pending"> {{invoice.Status}}</span></div>
+          <div *ngSwitchCase="'Dispatched'" class="cardcontents">Status :<span class="rejected">{{invoice.Status}}</span></div>
+          <div *ngSwitchCase="'Reviewed'" class="cardcontents">Status : <span class="pending">{{invoice.Status}}</span></div>
+          <div *ngSwitchCase="'In Review'" class="cardcontents">Status : <span class="pending">{{invoice.Status}}</span></div>
+          <div *ngSwitchCase="'Generated'" class="cardcontents">Status : <span class="pending">{{invoice.Status}}</span></div>
+          <div *ngSwitchCase="'Invoice Posted Partially '" class="cardcontents">Status : <span class="pending">{{invoice.Status}}</span></div>
+          <div *ngSwitchCase="'Invoice Posted'" class="cardcontents">Status : <span class="pending">{{invoice.Status}}</span></div>
+          <div *ngSwitchCase="'Payment Received'" class="cardcontents">Status :<span class="approved"> {{invoice.Status}}</span></div>
+          <p class="cardcontents">Date : {{invoice.CreatedDate}}</p>
+     
+      </ion-list>
+    </ion-card-content>
+  </ion-list>
+
+</ion-slide>
+
+<ion-slide>
+  <p class="dropdown">Supplies</p>
+  <hr>
+  <div>
+   <ion-item>
+     <ion-datetime picker date [(ngModel)]="event.startDate" max="2099" min="1990" (ionChange)="startdatetime($event)"></ion-datetime>
+     <ion-label> <button ion-button id="startbutton">Start Date</button> <span
+         class="date_time">{{event.startDate | date: "MM-dd-yyyy"}}</span></ion-label>
+   </ion-item>
+ </div>
+ <div>
+   <ion-item>
+     <ion-datetime picker date [(ngModel)]="event.startDate" (ionChange)="enddatetime($event)" max="2099" min="1990"></ion-datetime>
+     <ion-label> <button ion-button id="endbutton">End Date</button>
+       <span class="date_time">{{event.endDate | date: "MM-dd-yyyy"}}</span></ion-label>
+   </ion-item>
+ </div>
+   <div text-center><button ion-button (click)="sendSuppliesRequest()">Go</button></div>       
+ <ion-card-content class="cardalign" *ngIf='!SupStatus'>No Records Found</ion-card-content>
+   <!-- 
+ [ngSwitch]=reservationAccess.Status (click)='actionSheetMethod(reservationAccess)'
+     -->
+ 
+ 
+ <ion-list text-wrap *ngFor="let Supplies of userSuppliesJson; let i = index;" >
+     
+     <ion-card-content  *ngIf='SupStatus'>
+       <ion-list (click)="detailpage(Supplies.OrderId)" class="disp">
+       <p class="cardcontents"><b>Order Number : {{Supplies.OrderNumber}}</b></p>
+       <p class="cardcontents">User : {{Supplies.UserFullName}}</p>
+       <p class="cardcontents">Date : {{Supplies.CreatedDate |  date: "MM-dd-yyyy"}}</p>
+       <p *ngIf="Supplies.TotalAmount"class="cardcontents">Total Amount : {{Supplies.TotalAmount | number:'1.2-2'}} {{Supplies.Currencycode}}</p>
+       <p *ngIf="!Supplies.TotalAmount"class="cardcontents">Total Amount : 0.00 {{Supplies.Currencycode}}</p>
+    <p class="cardcontents">Status : {{Supplies.Status}}</p>
+   </ion-list>
+ </ion-card-content>
+   </ion-list>
+ 
+
+  </ion-slide>
+
+</ion-slides>
+</ion-content>

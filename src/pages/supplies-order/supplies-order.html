@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Supplies Order</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item  *ngIf="isUserOpenUp">
+    <ion-label>
+      User
+    </ion-label>
+    <ion-select placeholder='' multiple="false" [(ngModel)]="user_Id" (ionChange)="userOnChangeHandeler()">
+      <ion-option *ngFor="let user of userJson" value="{{user.UserId}}">{{user.UserName}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item id="page-select1" *ngIf="isprojectDisabled">
+    <ion-label>
+      Project 
+    </ion-label>
+    <ion-select placeholder='' multiple="false" [(ngModel)]="project_Id" (ionChange)="projectOnChangeHandeler()">
+      <ion-option *ngIf='status_Proj' value='0' selected>No Records Found</ion-option>
+      <ion-option *ngIf='!status_Proj' value='0' selected>Not Applicable</ion-option>
+      <ion-option *ngFor="let project of project_Json " value="{{project.ProjectId}}">{{project.ProjectName}}
+      </ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item id="page-select2">
+    <ion-label>
+      Lab*
+    </ion-label>
+    <ion-select placeholder='' multiple="false" [(ngModel)]="lab_Id" (ionChange)="accountHandling()">
+
+      <ion-option  value='0' selected>Select Lab</ion-option>
+      <ion-option *ngFor="let lab of lab_Json" value="{{lab.GroupId}}">{{lab.GroupName}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item id="page-select3" [hidden]="isAccountOpenup">
+    <ion-label>
+      {{labType}}*
+    </ion-label>
+    <ion-select placeholder='' multiple="false" [(ngModel)]="account_Id" (ionChange)="changeProductBasedOnGrant()">
+      <ion-option *ngIf='status_Account' value="0">No Records Found</ion-option>
+      <ion-option *ngIf='!status_Account' value='0' selected>{{labType}}</ion-option>
+
+      <ion-option *ngFor="let AccCode of account_Json" value="{{AccCode.GroupAccountCodeId}}">{{AccCode.AccountCode}}
+      </ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-label style="margin-left: 1px">
+   Shipping Address
+  </ion-label>
+  <ion-item>
+  
+      <ion-textarea [(ngModel)]="shippingAddress" style="border: 1px solid black;     padding: 5px 4px 3px 5px;" placeholder="Shipping Address"></ion-textarea>
+  </ion-item>
+  <p class="dropdown">Order Details</p>
+
+  <ion-card *ngFor="let orders of orderDetails">
+    <ion-card-content>
+          <ion-row>
+            <ion-col col-9>
+              <p class="cardcontents"><b> {{orders.ProductName}}</b></p>
+              <p class="cardcontents">Quantity Per Unit: {{orders.QuantityPerUnit}}</p>
+              <p class="cardcontents">Price Per Unit: {{orders.UnitPrice}} </p> 
+              <p class="cardcontents">Order Qantity: {{orders.OrderQty}}</p>
+              <p class="cardcontents">Total Price: {{orders.OrderQty}} * {{orders.UnitPrice}} =  {{orders.TotalPrice}}</p>
+            </ion-col>       
+          </ion-row>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
+<ion-footer no-shadow>
+  <ion-toolbar position="bottom" style="text-align: center;" >
+    <ion-label><b>Total Price: {{totalPrice}}</b></ion-label>
+    <button ion-button block (click)="validationRequest()">Create an order</button>
+  </ion-toolbar>
+</ion-footer>
+
+
+ 

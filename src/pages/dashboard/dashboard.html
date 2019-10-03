@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title> My Dashboard</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+  <ion-row [class.hide]="userType" class="rowstyle">
+    <ion-col>
+      <p class="dropdown">Facility</p>
+    </ion-col>
+    <ion-col  class="colstyle">
+      <ion-select *ngIf='emptyString' disabled="true" [(ngModel)]="providerValue" placeholder='No Records Found'
+        multiple="false" (ionChange)="updateChange()">
+      </ion-select>
+      <ion-select *ngIf='!emptyString' [(ngModel)]="providerValue" placeholder='Facility' multiple="false"
+        (ionChange)="updateChange()">
+        <ion-option *ngFor="let facility of userFacilitiesJson; let i = index;" selected="{{(i==0)}}"
+          value="{{facility.GroupId}}">{{facility.GroupName}}</ion-option>
+      </ion-select>
+    </ion-col>
+
+  </ion-row>
+  <hr [class.hide]="userType">
+
+  <p class="cardslayout">Instrument Usage</p>
+  <table>
+    <tr>
+      <th>Monthly</th>
+
+    </tr>
+    <tr>
+      <td>No. of Reservations : <b>{{monthlyCount}}</b></td>
+
+    </tr>
+    <tr>
+      <td>Total Amount : <b>{{monthlyAmt}}</b></td>
+
+    </tr>
+
+  </table>
+  &nbsp;
+  <table>
+    <tr>
+      <th>Quaterly</th>
+
+    </tr>
+    <tr>
+      <td>No. of Reservations : <b>{{quaterlyCount}}</b></td>
+
+    </tr>
+    <tr>
+      <td>Total Amount : <b>{{quaterlyAmt}}</b></td>
+
+    </tr>
+
+  </table>
+
+  <p ion-align="center">
+    <canvas #doughnutCanvas width="450" height="350" [class.hide]="graphHide" class="canvasstyle"></canvas>
+  </p>
+  <p ion-align="left"><canvas #barCanvas width="450" height="350" [class.hide]="graphHide"
+      style="align-items: center;"></canvas>
+  </p>
+
+  <p class="cardslayout">Technical Issues</p>
+  <ion-card-content *ngIf='!technicalStatus'>No Records Found</ion-card-content>
+  <div *ngIf='technicalStatus'>
+        <ion-card *ngFor="let technicalIssues of userFacilitiesTechnicalIssuesJson"  (click)='dashPage(technicalIssues)'>
+        <div class="cardsubheading">Resource : {{technicalIssues.Source}}</div>
+        <div class="cardsubtext"> Created Date : {{technicalIssues.strCreatedDate}}</div>
+        <div class="cardsubtext"> Status : {{technicalIssues.Status}}</div>
+        </ion-card>
+  </div>
+
+</ion-content>

@@ -1,0 +1,54 @@
+<!--Created by Anto Rupak-->
+<!--
+  Generated template for the InstrumentSearchPage page by Anto Rupak.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content>
+  <img src="assets/imgs/splash.png" class="imageTitle">
+  <ion-searchbar [(ngModel)]="searchText" debounce=450 (ionInput)="getSearchResults()"></ion-searchbar>
+  <!--<ion-row center>
+    <ion-col text-center>
+      <button ion-button (click)='getSearchResults()'>Search</button>
+    </ion-col>
+  </ion-row>-->
+  <ion-row center>
+    <ion-col text-center>
+
+      <span style="text-decoration:underline; color:#1976D2" (click)='signup()' *ngIf='!loginSucsses'> Back to
+        Login</span><br />
+
+    </ion-col>
+  </ion-row>
+  <div *ngIf='searchstatus' style="text-align: center"><b>No Results Found</b> </div>
+  <ion-card *ngFor="let results of searchResultsJson" style="border: 1px solid;">
+    <ion-row>
+      <ion-col col-4>
+        <ion-row row-3>
+          <img src="{{results.Image}}" class="cardImage" alt="No Image">
+        </ion-row>
+      </ion-col>
+      <ion-col col-6>
+        <h2><b>{{results.TemplateName}}</b></h2>
+        <span class="cardcontents">{{results.ProviderName}}</span>
+        <div *ngIf='loginSucsses'>
+          <span class="cardcontents">Facility Access: {{results.FacilityStatus}}</span><br/>
+          <span class="cardcontents">Instrument Access: {{results.ResourceStatus}}</span>
+        </div>
+
+      </ion-col>
+    </ion-row>
+    <div class="title">
+      <span class="b2">
+        <button ion-button *ngIf='!loginSucsses' (click)="userLogin1(results.TemplateId)">Login</button>
+        <button ion-button *ngIf='loginSucsses' (click)="actionSheetMethod(results)">Options</button>
+      </span>
+      <span class="b1"><button ion-button (click)='getFacilityDescription(results.TemplateDescription)'>Full
+          Description</button></span>
+    </div>
+  </ion-card>
+</ion-content>

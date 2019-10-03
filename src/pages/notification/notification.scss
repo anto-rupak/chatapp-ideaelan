@@ -1,0 +1,60 @@
+page-notification {
+p.dropdown{
+    font-size: 3.5 rem;
+   
+    color: #1976D2;
+  }
+
+ ion-toggle {
+    zoom: 0.9; 
+    padding: 0px;
+ }
+
+  .bottomRow
+  {
+    margin-top: -15px;
+    margin-bottom: -5px;
+  }
+ 
+  .item {
+    min-height: 1rem; /* <- this can be whatever you need */
+}
+  p.don{
+    font-size: 1.5 rem;
+   
+      color:#000000;
+  }
+  ion-label{
+      font-size: 2 rem;
+      line-height: -1px;
+      color:#000000;
+      white-space: normal !important;
+      max-width: none !important;
+      width: 10%;
+  }
+  ion-list {
+    margin-top: 15px;
+    margin-bottom: -5px;
+    border-bottom: 0.5rem;
+    text-align: left;
+    margin-left: 5px;
+  }
+  .toggle-md.toggle-checked .toggle-icon{
+    background-color:rgb(53, 136, 219); 
+  }
+
+  .toggle.toggle-checked .toggle-inner{
+    background-color: green;
+  }
+      .toggle .toggle-icon{
+        background-color: #e2e2e2;
+      }
+      .toggle .toggle-inner{
+        background-color: #FAFAFA;
+      }
+
+  .list {
+    margin: -1px 0 16px;
+}
+
+}

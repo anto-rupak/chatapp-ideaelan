@@ -1,0 +1,110 @@
+<ion-header>
+
+	<ion-navbar hideBackButton>
+		<ion-title ion-align='center'>Code</ion-title>
+	</ion-navbar>
+
+</ion-header>
+<!--<ion-content padding>
+    <p>Please enter 5-digit code provided by your core to begin.This code to be entered only once.</p>
+   
+  <custom-pin  pagetitle="Enter The Code" (change)="sendPinRequest($event)"></custom-pin>
+  </ion-content>-->
+<ion-content padding class="center-vertical no-scroll">
+	<p>Please enter 5-digit code provided by your core to begin.This code to be entered only once.</p>
+	<ion-grid>
+		<ion-row class="row pincode-input">
+			<ion-col class="col col-10 col-offset-10">
+				<span *ngIf="codeone || codeone == 0">{{codeone}}</span>
+			</ion-col>&nbsp;&nbsp;
+			<ion-col class="col col-10 col-offset-10">
+				<span *ngIf="codetwo || codetwo == 0">{{codetwo}}</span>
+			</ion-col>&nbsp;&nbsp;
+			<ion-col class="col col-10 col-offset-10">
+				<span *ngIf="codethree || codethree == 0">{{codethree}}</span>
+			</ion-col>&nbsp;&nbsp;
+			<ion-col class="col col-10 col-offset-10">
+				<span *ngIf="codefour || codefour == 0">{{codefour}}</span>
+			</ion-col>&nbsp;&nbsp;
+			<ion-col class="col col-10 col-offset-10">
+				<span *ngIf="codefive || codefive == 0">{{codefive}}</span>
+			</ion-col>
+		</ion-row>
+
+	</ion-grid>
+	<br />
+	<div class="errorMessage" *ngIf="!message">
+		<span>Please Enter Correct Pin</span>
+	</div>
+	<ion-grid>
+		<ion-row class="row1">
+			<ion-col class="col numpad col-offset-10" >
+				<button ion-button outline class="number" (click)="add('1')">1</button>
+			</ion-col>
+			<ion-col class="col numpad col-offset-10" >
+				<button ion-button outline class="number" (click)="add('2')">2</button>
+			</ion-col>
+			<ion-col class="col numpad col-offset-10" >
+				<button ion-button outline class="number" (click)="add('3')">3</button>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col class="col numpad col-offset-10">
+				<button ion-button outline class="number" (click)="add('4')">4</button>
+			</ion-col>
+			<ion-col class="col numpad col-offset-10">
+				<button ion-button outline class="number" (click)="add('5')">5</button>
+			</ion-col>
+			<ion-col class="col numpad col-offset-10">
+				<button ion-button outline class="number" (click)="add('6')">6</button>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col class="col numpad col-offset-10">
+				<button ion-button outline class="number" (click)="add('7')">7</button>
+			</ion-col>
+			<ion-col class="col numpad col-offset-10">
+				<button ion-button outline class="number" (click)="add('8')">8</button>
+			</ion-col>
+			<ion-col class="col numpad col-offset-10">
+				<button ion-button outline class="number" (click)="add('9')">9</button>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col class="col numpad col-offset-10"></ion-col>
+			<ion-col class="col numpad col-offset-10">
+				<button ion-button outline class="number" (click)="add('0')">0</button>
+			</ion-col>
+			<ion-col class="col numpad col-offset-10">
+				<div class="button icon ion-arrow-left-a button-light button-stretch" (click)="delete()">
+					<ion-icon name="backspace"></ion-icon>
+				</div>
+			</ion-col>
+		</ion-row>
+
+	</ion-grid>
+</ion-content>
+<!--<ion-content >
+
+
+<ion-list>
+ 
+    <p>Please enter 5-digit code provided by your core to begin.This code to be entered only once.</p>
+  
+    <ion-item >
+      <ion-label>
+        <ion-icon name="lock"></ion-icon>
+      </ion-label>
+      <ion-input type="number" [maxlength]="5" placeholder='5-digit code' [(ngModel)]="pin" ></ion-input>
+    </ion-item>
+    
+<br>
+<input type="text" id="foo" value="bar" onkeyup="showMe(this)" />
+<ion-row center>  
+ <ion-col text-center>   
+  <button ion-button (click)='sendPinRequest()'>Proceed</button>  
+ </ion-col> 
+</ion-row>
+</ion-list>
+
+</ion-content>-->

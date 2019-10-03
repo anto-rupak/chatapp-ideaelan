@@ -1,0 +1,44 @@
+<!--Module worked by Anto Rupak-->
+<ion-header>
+  <ion-navbar hideBackButton text-center>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Labs</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)" [(ngModel)]="searchText"></ion-searchbar>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-list>
+    <ion-item  *ngFor="let lab of userLabJson" (click)='alertRequest(lab)'>
+        <h2> {{lab.GroupName}} </h2>
+    </ion-item>
+    
+  </ion-list>
+  <!-- <ion-card *ngFor="let lab of userLabJson" [ngSwitch]=lab.Status>
+      <ion-card-content>
+        <ion-item>
+          {{lab.GroupName}}
+          <p></p>
+          <div *ngSwitchCase="'Request Access'">
+            <button ion-button (click)='alertRequest(lab)'>Request Access</button>
+          </div>
+          <div *ngSwitchCase="'Pending'">
+            Waiting for Approval
+          </div>
+          <div *ngSwitchCase="'Approved'">
+            {{lab.Status}}
+          </div>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>-->
+</ion-content>

@@ -1,0 +1,97 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "com-badrit-base64": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-actionsheet": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-androidx": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-calendar": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-datepicker": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-device-name": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-firebase": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-firebasex": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-telerik-imagepicker": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-uniquedeviceid": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-fingerprint-aio": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-streaming-media": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-cocoapod-supportx": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    }
+  }
+}

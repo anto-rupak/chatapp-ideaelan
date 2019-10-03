@@ -1,0 +1,95 @@
+page-inbox {
+  #rounded {
+    width: 100%;
+    height: 100px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 10px;
+    margin-bottom: 10px;  
+}
+
+#container {
+    width: 300px; 
+    margin-left:auto; 
+    margin-right: auto; 
+}
+  .example-trigger {
+    display: inline-block;
+  }
+
+      ion-slides.forgot{
+        .slide-zoom {
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: auto;
+         }
+    }
+  
+    ion-select { 
+      height: 35px;
+      font-size: 1.3rem;
+      font-weight: bold;
+              text-align: left;
+              max-width: 100%;
+              border: 1px solid rgb(0, 0, 0);
+          }
+    ion-option {
+      text-align: left;
+      
+      border: 2px solid rgb(0, 0, 0);
+  }
+    
+    input{
+        font-size: 2rem;
+        border: .2rem;
+      }
+      .no-padding {
+        padding: 0px ;
+        padding-top: 0px;
+    }
+    ion-button{
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    p { 
+      display: block;
+      margin-top: 0.3em;
+      margin-bottom: 0.3em;
+      margin-left: 10px;
+      margin-right: 0; }
+      ion-list {
+        text-align: left;
+        margin-left: 5px;
+      }
+      p.cardcontents{
+        text-align: justify;
+        overflow: initial;
+        white-space: initial;
+      }
+      
+      p { 
+        display: block;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        margin-left: 10px;
+        margin-right: 15px; }
+            
+        ion-list {
+          margin-top: 15px;
+          margin-bottom: -5px;
+          border-bottom: 0.5rem;
+          text-align: left;
+          margin-left: 5px;
+        }
+  
+        .list {
+          margin: -1px 0 -10px;
+        }
+        .card-content {
+          padding: 13px 8px;
+          font-size: 1.4rem;
+          line-height: 1.5;
+        }
+    
+  }

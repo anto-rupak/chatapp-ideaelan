@@ -1,0 +1,47 @@
+//Created by Anto Rupak
+page-facilities {
+  .button {
+    height: 1.8em;
+    background-color: transparent;
+    font-size: 1.3rem;
+}
+.card {
+
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.card-content {
+  padding: 5px 5px 5px;
+}
+  /*
+.cardfacilities {
+  
+    border-color: gray;
+    border-top: 0.1rem solid;
+    border-bottom: 0.1rem solid;
+    border-right: 0.1rem solid;
+    border-left: 0.1rem solid;
+}*/
+/*p.cardcontents{
+    text-align: justify;
+    margin: 1%;
+    margin-left: 2%;
+    white-space: initial;
+  }
+  div.cardcontents{
+    text-align: justify;
+    margin: 1%;
+    margin-left: 2%;
+    white-space: initial;
+  } */
+  .searchbar .searchbar-clear-icon {
+    right: 0;
+    top: 0;
+    background-position: center;
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: 18px;
+}
+}

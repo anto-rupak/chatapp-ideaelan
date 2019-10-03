@@ -1,0 +1,68 @@
+
+<ion-content class="main-view" padding #container>
+  <div class="overlay" ></div>
+  <ion-scroll  class="modal_content" scrollY=true >
+  <div *ngIf='isLoginAll'>
+    <!-- Content here -->
+
+    <div class="input-icon-wrap" style="margin-top: 1em">
+      <span class="input-icon">
+        <ion-icon name="mail"></ion-icon>
+      </span>
+      <input type="email" class="input-with-icon" placeholder="Email ID" [(ngModel)]="username" id="user_email"
+        autocomplete="new-password" (change)="emailChange()">
+    </div>
+    <div class="input-icon-wrap" style="margin-top: 1em"  *ngIf='!isOtp'>
+      <span class="input-icon">
+        <ion-icon name="lock"></ion-icon>
+      </span>
+      <input type="password" class="input-with-icon" autocomplete="new-password" placeholder="Password"
+        [(ngModel)]="password" id="user_password" (keyup.enter)="postData()">
+    </div>
+    <div class="input-icon-wrap" style="margin-top: 1em" *ngIf='isOtp'>
+      <span class="input-icon">
+        <ion-icon name="lock"></ion-icon>
+      </span>
+      <input type="number" class="input-with-icon"  placeholder="OTP" [(ngModel)]="otp" (keyup.enter)="postData()">
+    </div>
+    <!--Modified by Anto Rupak-->
+    <span>
+      <p class="forgot" ion-align='left' (click)='phoneEmailOtpRequest()' *ngIf='isOtp'>Resend OTP</p>
+    </span> 
+   
+
+    <ion-row center>
+        <ion-col text-center>
+            <button ion-button full (click)="cancel()">Cancel</button><br />
+          
+          </ion-col>
+      <ion-col text-center>
+        <button ion-button full (click)="postData()">Sign In</button><br />
+      
+      </ion-col>
+    </ion-row>
+
+   
+
+  </div>
+  <div *ngIf='isPhoneNumber'>
+
+    <div class="input-icon-wrap" style="margin-top: 1em">
+      <span class="input-icon">
+        <ion-icon name="call"></ion-icon>
+      </span>
+      <input type="number" class="input-with-icon" placeholder="Enter Correct Phone Number" [(ngModel)]="updatePhoneNumber">
+    </div>
+
+    <ion-row center>
+      <ion-col text-center>
+        <button ion-button full (click)="updatePhoneButton()">Update Phone</button><br />
+        
+        <span class="name" style="text-decoration:underline; color:#1976D2" (click)='changeIsLogin()'>SignIn</span>
+      </ion-col>
+
+    </ion-row>
+
+  </div>
+</ion-scroll>
+</ion-content>

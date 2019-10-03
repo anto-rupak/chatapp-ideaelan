@@ -1,0 +1,48 @@
+page-appointments {
+    //--- button color for calendar ---edited by anto
+    #startbutton{
+        background-color: red;
+        width: 10rem;
+    }
+    #endbutton{
+        background-color: green;
+        width: 10rem;
+    }
+    .owl-dt-container {
+        font-size: 1.3em;
+    }
+    
+    .select .select-icon {
+        margin-right: 1em;
+    }
+    
+    .select .select-icon .select-icon-inner {
+        color: #0096ff;
+    }
+    button {
+        background-color: transparent;
+    }
+    
+    .picker .picker-col {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        padding: 0 5px;
+      }
+    ion-select {
+        height: 35px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: left;
+        width: 50%;
+        border: 1px solid rgb(0, 0, 0);
+        max-width: 50%; 
+        
+      } 
+      .datetime-text{
+          display: none;
+      }
+      .label {
+        margin: 5px 0px 0px 0;
+    }
+}
+

@@ -1,0 +1,48 @@
+<ion-header hideBackButton="true">
+
+  <ion-navbar>
+    <button ion-button  icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+<ion-title ion-align='center'>View Cage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row><ion-col col-4><b>Cage Name </b></ion-col><ion-col col-6>{{cageName}}</ion-col></ion-row><hr>
+  <ion-row><ion-col col-4><b>Species </b></ion-col><ion-col col-6>{{species}}</ion-col></ion-row><hr>
+  <ion-row><ion-col col-4><b>User</b></ion-col><ion-col col-6>{{user}}</ion-col></ion-row><hr>
+  <ion-row><ion-col col-4><b>Location </b></ion-col><ion-col col-6>{{location}}</ion-col>
+    <ion-icon [hidden]="icon1"  name="md-create" (click)=locationClicked()></ion-icon>
+  </ion-row><hr>
+  <ion-row><ion-col col-4><b>Activation Date </b></ion-col><ion-col col-6>{{actDate | date: "MM-dd-yyyy"}}</ion-col></ion-row> <hr>
+  <ion-row><ion-col col-4><b>PI/Lab Admin </b></ion-col><ion-col col-6>{{admin}}</ion-col></ion-row> <hr>
+  <ion-row><ion-col col-4><b>Facility</b></ion-col><ion-col col-6>{{faciltiy}}</ion-col></ion-row> <hr>
+  <ion-row><ion-col col-4><b>Contact </b></ion-col><ion-col col-6>{{contact}}</ion-col></ion-row> <hr>
+  <ion-row><ion-col col-4><b>Phone</b></ion-col><ion-col col-6>{{phone}}</ion-col></ion-row> <hr>
+  <ion-row><ion-col col-4><b>No. of Animals </b></ion-col><ion-col col-6>{{nOfAnimals}}</ion-col></ion-row> <hr>
+  <ion-row><ion-col col-4><b>Animals </b></ion-col><ion-col col-6>{{animalsList}}</ion-col>
+    <ion-icon [hidden]="icon2" name="md-create" (click)=animalPage()></ion-icon>
+  </ion-row> <hr>
+  <ion-row style="align-items: center; height: 3em"><ion-col col-4><b>Change Status  </b></ion-col>
+    <ion-col col-6>
+      <ion-select [disabled]="icon3" [(ngModel)]="cstatus" placeholder='Select Status' multiple="false" >
+        
+        <ion-option >Active</ion-option>
+        <ion-option >Discarded</ion-option>
+      </ion-select>
+      
+    </ion-col>
+  </ion-row> <hr>
+  <div>
+ 
+   
+   <ion-row><ion-col col-4><b>Notes </b></ion-col>  <ion-item>
+    <ion-textarea [disabled]="icon3" [(ngModel)]="message"> Notes</ion-textarea>
+  </ion-item></ion-row> <hr>
+  
+<div text-center><button [hidden]="icon4" ion-button (click)='updateRequest()'>Update</button></div>
+  </div>
+</ion-content>

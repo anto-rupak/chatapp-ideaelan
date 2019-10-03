@@ -1,0 +1,50 @@
+page-supplies {
+  .toolbar-content{
+    z-index:10 !important;
+    bottom:0 !important;
+  }
+  .text-input {
+    text-align: center;
+    margin: 0px 5px 5px 5px;
+}
+.input-cover {
+  border-bottom: 1px solid;
+}
+    ion-select {
+    
+      height: 35px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-align: left;
+      border: 1px solid rgb(0, 0, 0);
+      align-items: center;
+      width: 50%;
+     
+    }
+    .md ion-footer .toolbar:last-child {
+      min-height: calc(46px + env(safe-area-inset-bottom));
+  }
+
+.select .select-icon {
+  margin-right: 1em;
+}
+
+.select .select-icon .select-icon-inner {
+  color: #0096ff;
+}
+#filterbycategory {
+    
+  height: 35px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: left;
+  border: 1px solid rgb(153, 153, 153);
+  align-items: center;
+  width: 100%;
+ 
+}
+ .toolbar-content{
+  z-index:10 !important;
+  bottom:0 !important;
+}
+}

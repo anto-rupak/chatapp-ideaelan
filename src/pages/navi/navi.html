@@ -1,0 +1,293 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>IdeaElan</ion-title>
+  </ion-navbar>
+
+  <ion-segment [(ngModel)]="page">
+    <ion-segment-button value="0" (click)="selectedTab(0)">
+      Favorites
+    </ion-segment-button>
+    <ion-segment-button value="1" (click)="selectedTab(1)">
+      Instruments
+    </ion-segment-button>
+    <ion-segment-button value="2" (click)="selectedTab(2)">
+      Profile
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+
+<ion-content overflow-scroll="false" #container>
+
+  <ion-slides class="forgot" #slider (ionSlideWillChange)="moveButton($event)">
+    <ion-slide>
+
+      <ion-card-content *ngIf='noInstruments'>
+        <h3>No Instruments Displayed</h3>
+        <p class="noinstrument"><b> You can add instrument on this page by going to the instrument and marking desired
+            instrument as favorite.</b></p>
+
+        <p class="noinstrument">Note : You will be approved by the facility Admin before you can view or use an
+          instrument you can view and request access a facility under the Facilities in the Side Menu.</p>
+      </ion-card-content>
+
+      <ion-card *ngFor="let instrument1 of favInstrumentJson" [class.hide]='emptyString'>
+
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-4>
+              <img src="{{instrument1.ResourceImage}}" class=".cardimg" onerror="this.style.display='none'">
+            </ion-col>
+            <ion-col col-6>
+              <b>{{instrument1.ResourceName}}</b>
+              <p class="cardcontents">{{instrument1.GroupName}}</p>
+              <p class="cardcontents">{{instrument1.SpecialInstruction}}</p>
+            </ion-col>
+          </ion-row>
+          <div class="title">
+
+            <span class="b2">
+
+              <button ion-button *ngIf="instrument1.Status==('Approved')"
+                (click)="changeScheduler( 'favorite' ,instrument1)">Schedule</button>
+            </span>
+            <span class="b1">
+              <button ion-button (click)='actionSheetMethod(instrument1)'>Option</button>
+            </span>
+          </div>
+
+        </ion-card-content>
+        <ion-card-content *ngIf='checkStatus===400'>
+          <h3>No Records Found</h3>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-slide>
+
+    <ion-slide>
+      <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
+              <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+                refreshingText="Refreshing...">
+              </ion-refresher-content>
+            </ion-refresher>-->
+      <ion-searchbar (ionInput)="getItems()" [(ngModel)]="searchText" debounce=450></ion-searchbar>
+      <div *ngIf='isSearchResult' style="text-align: center"><b>No Results Found</b> </div>
+
+
+
+      <ion-card-content *ngIf='noInstruments'>
+        <h3>No Instruments Displayed</h3>
+        <p class="noinstrument">Note : You will be approved by the facility Admin before you can view or use an
+          instrument you can view and request access a facility under the Facilities in the Side Menu.</p>
+      </ion-card-content>
+      <ion-card *ngFor="let instrument of userInstrumentJson; let i = index;" [ngSwitch]=instrument.Status
+        [class.hide]='emptyString'>
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-4>
+
+              <img src="{{instrument.ResourceImage}}" onerror="this.style.display='none'">
+            </ion-col>
+            <ion-col col-6>
+             <b>{{instrument.ResourceName}}</b>
+              <p class="cardcontents">{{instrument.GroupName}}</p>
+              <p class="cardcontents">{{instrument.SpecialInstruction}}</p>
+              <div *ngSwitchCase="'Approved'" class="cardcontents"><span class="approved">
+                  {{instrument.Status}}</span></div>
+              <div *ngSwitchCase="'Rejected'" class="cardcontents"><span class="rejected">
+                  {{instrument.Status}}</span></div>
+              <div *ngSwitchCase="'Pending'" class="cardcontents"><span class="rejected">
+                  {{instrument.Status}}</span></div>
+              <div *ngSwitchCase="'Request Access'" class="cardcontents"><span>
+                  {{instrument.Status}}</span></div>
+            </ion-col>
+          </ion-row>
+          <div class="title">
+            <span class="b2">
+              <!--Modified by Anto Rupak for Schedular-->
+              <button ion-button *ngIf="instrument.Status==('Approved')"
+                (click)="changeScheduler( 'Instrument', instrument)">Schedule</button>
+              <button ion-button *ngIf="instrument.Status==('Request Access' || 'Rejected')"
+                (click)="updateInstrument(instrument)">Request Access</button>
+              <button ion-button *ngIf="instrument.Status==('Rejected')" (click)="updateInstrument(instrument)">Request
+                Access</button>
+
+            </span>
+            <span class="b1">
+              <button ion-button (click)='actionSheetMethod(instrument)'
+                *ngIf="instrument.Status==('Approved')">Option</button>
+            </span>
+          </div>
+
+        </ion-card-content>
+      </ion-card>
+
+    </ion-slide>
+    <ion-slide>
+
+      <ion-list>
+
+
+        <div class="input-icon-wrap">
+          <span class="input-icon">
+            <ion-icon name="person"></ion-icon>
+          </span>
+          <input type="text" class="input-with-icon" placeholder="First Name" [(ngModel)]="firstName"
+            id="user_password">
+        </div>
+
+
+
+
+
+        <div class="input-icon-wrap">
+          <span class="input-icon">
+            <ion-icon name="person"></ion-icon>
+          </span>
+          <input type="text" class="input-with-icon" placeholder="lastName" [(ngModel)]="lastName" id="user_password">
+        </div>
+
+
+
+        <div class="input-icon-wrap">
+          <span class="input-icon">
+            <ion-icon name="mail"></ion-icon>
+          </span>
+          <input type="email" class="input-with-icon" placeholder="User Email" disabled="true" [(ngModel)]="userEmail"
+            id="user_password">
+        </div>
+
+
+        <div class="input-icon-wrap">
+          <span class="input-icon">
+            <ion-icon name="call"></ion-icon>
+          </span>
+          <input type="number" class="input-with-icon" placeholder="Phone" [(ngModel)]="userPhone" id="user_password">
+        </div>
+
+
+        <div class="input-icon-wrap">
+          <span class="input-icon">
+            <ion-icon name="pin"></ion-icon>
+          </span>
+          <input type="text" class="input-with-icon" placeholder="Address" [(ngModel)]="userAddress" id="user_password">
+        </div>
+
+
+        <div class="input-icon-wrap">
+          <span class="input-icon">
+            <ion-icon name="pin"></ion-icon>
+          </span>
+          <input type="text" class="input-with-icon" placeholder="City" [(ngModel)]="userCity" id="user_password">
+        </div>
+
+
+        <div class="input-icon-wrap">
+          <span class="input-icon">
+            <ion-icon name="pin"></ion-icon>
+          </span>
+          <input type="text" class="input-with-icon" placeholder="State" [(ngModel)]="userState" id="user_password">
+        </div>
+
+
+
+        <div class="input-icon-wrap">
+          <span class="input-icon">
+            <ion-icon name="pin"></ion-icon>
+          </span>
+          <input type="text" class="input-with-icon" placeholder="Zip" [(ngModel)]="userZip" id="user_password">
+        </div>
+
+
+
+        <div class="input-icon-wrap">
+          <span class="input-icon">
+            <ion-icon name="pin"></ion-icon>
+          </span>
+          <ion-select [(ngModel)]="userCountry" placeholder='Country' multiple="false" (ionChange)="updateChange()">
+            <ion-option *ngFor="let country of countryJson" value="{{country.IsoCode}}">{{country.CountryName}}
+            </ion-option>
+          </ion-select>
+        </div>
+
+
+
+        <ion-item>
+          <ion-checkbox [(ngModel)]="userCheckbox" color="dark" checked="false" (ionChange)="updateChange()">
+          </ion-checkbox>
+          <ion-label>Sync reservation with phone Calender</ion-label>
+        </ion-item>
+
+        <ion-item [hidden]=hidAuthVar>
+          <ion-label>{{varloadauth}}</ion-label>
+          <ion-toggle [(ngModel)]="authCheckbox" (ionChange)="authupdateChange()"></ion-toggle>
+        </ion-item>
+
+        <ion-row>
+          <ion-col col-6>
+            <button ion-button fullscreen color="default" class="my-width" (click)='sendUpdateRequest()'>
+              <b>Update</b>
+            </button>
+          </ion-col>
+
+          <ion-col col-6>
+            <button ion-button color="default" class="my-width" (click)='changePassword()'>
+              <b>Change Password</b>
+            </button>
+          </ion-col>
+        </ion-row>
+
+      </ion-list>
+     
+
+
+      <p class="cardslayout">My Facilities</p>
+      <ion-card-content *ngIf='!facilityStatus'>No Records Found</ion-card-content>
+      <div *ngFor="let facility of userFacilityJson" [ngSwitch]=facility.Status>
+        <div *ngIf="facility.Status!='Request Access'">
+          <ion-item>
+            <ion-row>
+              <ion-col col-7>
+                {{facility.GroupName}}
+              </ion-col>
+              <ion-col col-5>
+                <ion-badge *ngSwitchCase="'Waiting for approval'" item-end style="background-color:#fec547;">Waiting for
+                  Approval</ion-badge>
+                <ion-badge *ngSwitchCase="'Approved'" item-end style="background-color:#3AB052;margin-left: 35px;">
+                  {{facility.Status}}</ion-badge>
+                <ion-badge *ngSwitchCase="'Rejected'" item-end style="background-color:#F35C49; margin-left: 35px;">
+                  {{facility.Status}}</ion-badge>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </div>
+      </div>
+
+      <p class="cardslayout">My Labs</p>
+      <ion-card-content *ngIf='!labStatus'>No Records Found</ion-card-content>
+      <div *ngFor="let lab of userLabJson" [ngSwitch]=lab.Status>
+        <ion-item>
+          <ion-row>
+            <ion-col col-7>
+              {{lab.GroupName}}
+            </ion-col>
+            <ion-col col-5>
+              <ion-badge *ngSwitchCase="'Pending'" item-end style="background-color:#fec547;margin-left: 35px;">{{lab.Status}}</ion-badge>
+              <ion-badge *ngSwitchCase="'Active'" item-end style="background-color:#3AB052;margin-left: 35px;">
+                {{lab.Status}}</ion-badge>
+
+            </ion-col>
+          </ion-row>
+
+
+        </ion-item>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

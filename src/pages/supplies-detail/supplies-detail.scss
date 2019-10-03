@@ -1,0 +1,146 @@
+page-supplies-detail {
+    body {
+        cursor: url('http://ionicframework.com/img/finger.png'), auto;
+    }
+    
+    .header .colp {
+        background-color:lightgrey;
+    }
+    
+    .colp {
+        border: solid 1px grey;
+        border-bottom-style: none;
+        border-right-style: none;
+    }
+    
+    .colp:last-child {
+        border-right: solid 1px grey;
+    }
+    
+    .row:last-child .colp {
+        border-bottom: solid 1px grey;
+    }
+    #rounded {
+        width: 100%;
+        height: 100px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 10px;
+        margin-bottom: 10px;  
+    }
+    #container {
+        width: 300px; 
+        margin-left:auto; 
+        margin-right: auto; 
+    }
+
+
+
+.cols {
+    /* padding: 5px; */
+    position: relative;
+    width: 100%;
+    margin: 0;
+    min-height: 1px;
+    -webkit-flex-basis: 0;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  .select {	
+   
+      
+   margin-right: 4px;	
+   margin-top: 4px;
+}
+         
+          ion-option { direction: rtl;
+           }
+ 
+  p.dropdown{
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: #1976D2;
+}
+  input{
+    font-size: 2rem;
+    border: .2rem;
+  }
+  .no-padding {
+    padding: 0px ;
+    padding-top: 0px;
+  }
+  ion-button{
+    margin-left: auto;
+    margin-right: auto;
+    
+  } 
+  p { 
+  display: block;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  margin-left: 10px;
+  margin-right: 0; }
+  
+  .disp{
+    border: 1px solid #000000;
+  }
+        
+      
+      p.cardcontents{
+        text-align: justify;
+        overflow: initial;
+        white-space: initial;
+        margin: 1%;
+        margin-left: 2%;
+        white-space: initial;
+      }
+
+
+  div.cardcontents{
+    text-align: justify;
+    margin: 1%;
+    margin-left: 2%;
+    white-space: initial;
+  }
+  .list {
+    margin: -1px 0 -10px;
+}
+.datetime-text{
+  display: none;
+  }
+  .card-content {
+    padding: 13px 8px;
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+
+ion-select {
+  height: 35px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: left;
+  border: 1px solid rgb(0, 0, 0);
+  align-items: center;
+  max-width: 100%;
+ 
+}
+  
+  ion-textarea{
+      border: 1px solid rgb(0, 0, 0);
+  }
+      p.dropdown{
+        font-size: 1.4rem;
+        font-weight: bold;
+      } 
+      ion-input{
+          max-width: 100;
+          border: 1%;
+          align-items: left;
+      }
+}

@@ -1,0 +1,104 @@
+<!--Modified by Anto Rupak using bootstarp-->
+
+
+<!--UI modified by Anto Rupak using Bootstarp-->
+<ion-content padding #container>
+  <!--Changes done for Insitution Name by Anto Rupak-->
+  <ion-row>
+    <ion-col>
+      <img src="assets/imgs/splash.png" alt="couldn't load">
+    </ion-col>
+    <ion-col style="text-align: center;">
+      <span>
+        Welcome to
+      </span>
+      <span class="headname">
+        {{insitutionName}}
+      </span>
+    </ion-col>
+    <ion-col>
+
+    </ion-col>
+
+  </ion-row>
+
+
+  <ion-list>
+    <div id="over">
+        <img src="{{ImageUrl}}"  alt="No Image">
+    </div>
+
+  </ion-list>
+
+  <div *ngIf='isLoginAll'>
+    <!-- Content here -->
+
+    <div class="input-icon-wrap" style="margin-top: 1em">
+      <span class="input-icon">
+        <ion-icon name="mail"></ion-icon>
+      </span>
+      <input type="email" class="input-with-icon" placeholder="Email ID" [(ngModel)]="username" id="user_email"
+        autocomplete="new-password" (change)="emailChange()">
+    </div>
+    <div class="input-icon-wrap" style="margin-top: 1em" *ngIf='!isOtp'>
+      <span class="input-icon">
+        <ion-icon name="lock"></ion-icon>
+      </span>
+      <input type="password" class="input-with-icon" autocomplete="new-password" placeholder="Password"
+        [(ngModel)]="password" id="user_password" (keyup.enter)="postData()">
+    </div>
+    <div class="input-icon-wrap" style="margin-top: 1em" *ngIf='isOtp'>
+      <span class="input-icon">
+        <ion-icon name="lock"></ion-icon>
+      </span>
+      <input type="number" class="input-with-icon" placeholder="OTP" [(ngModel)]="otp" (keyup.enter)="postData()">
+    </div>
+    <!--Modified by Anto Rupak-->
+    <span>
+      <p class="forgot" ion-align='left' (click)='phoneEmailOtpRequest()' *ngIf='isOtp'>Resend OTP</p>
+    </span>
+    <span>
+      <p class="forgot" ion-align='right' (click)='resetPassword()' *ngIf='!isOtp'>Forgot password ?</p>
+    </span>
+
+    <ion-row center>
+      <ion-col text-center>
+        <button ion-button full (click)="postData()">Sign In</button><br />
+        <button [hidden]=hid ion-button full (click)="authpostData()"> {{this.btn_cont}}</button><br />
+      <!--   <button [hidden]=hid ion-button full (click)="authpostData()">Finger Print</button><br />
+       Modified by Anto Rupak for Signup-->
+        New User? <span style="text-decoration:underline; color:#1976D2" (click)='signup()'> Sign Up</span><br />
+
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row center>
+      <ion-col text-center>
+
+        <span class="name" style="text-decoration:underline; color:#1976D2" (click)='searchInstrument()'>Instrument
+          Search</span>
+      </ion-col>
+    </ion-row>
+
+  </div>
+  <div *ngIf='isPhoneNumber'>
+
+    <div class="input-icon-wrap" style="margin-top: 1em">
+      <span class="input-icon">
+        <ion-icon name="call"></ion-icon>
+      </span>
+      <input type="number" class="input-with-icon" placeholder="Enter Correct Phone Number"
+        [(ngModel)]="updatePhoneNumber">
+    </div>
+
+    <ion-row center>
+      <ion-col text-center>
+        <button ion-button full (click)="updatePhoneButton()">Update Phone</button><br />
+        <span class="name" style="text-decoration:underline; color:#1976D2" (click)='changeIsLogin()'>SignIn</span>
+      </ion-col>
+
+    </ion-row>
+
+  </div>
+</ion-content>

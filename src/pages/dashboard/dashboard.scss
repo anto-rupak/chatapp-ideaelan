@@ -1,0 +1,168 @@
+page-dashboard {
+  p { 
+    display: block;
+    margin-top: 0.8em;
+    margin-bottom: 0.3em;
+    margin-left: 10px;
+    margin-right: 0; }
+  .colstyle{
+    margin-right: 4px;
+  }
+  .rowstyle{
+    align-items: center; 
+    height: 3em
+  }
+  .select {
+   
+    top: 10px;
+    width: 50%;
+    position: fixed;
+}
+.canvasstyle{
+  align-items: center;
+}
+.liststyle{
+  border: 1px solid #000000; 
+  margin: 1%;
+}
+
+  ion-select {
+
+
+    height: 35px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: left;
+    border: 1px solid rgb(0, 0, 0);
+
+ 
+     align-items: center;   
+     max-width: 100%;
+  }
+
+
+    p.cardslayout{
+        text-align: justify;
+        font-size:2rem;
+        color: rgb(0, 0, 0);
+        text-decoration: bold;
+        font-weight: bold;
+        padding: 1%;
+    
+      }
+     
+      canvas {
+        padding: 0;
+        margin: auto;
+        display: block;
+        width: 800px;
+    }
+      p.heading{
+        text-align: justify;
+        font-size:2rem;
+        color: #0096ff;
+        text-decoration: bold;
+        
+      
+      }
+      p.cardslayout{
+        text-align: justify;
+        font-size:2rem;
+        color: #0096ff;
+        border-bottom: 0.5rem;
+        text-decoration: bold;
+        margin: 1%;
+        
+      }
+      .col {
+        padding: 0px; 
+        position: relative;
+        width: 100%;
+        margin: 0;
+        min-height: 1px;
+        -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+    
+     
+        
+             
+            
+               p.dropdown{
+                font-size: 1.6rem;
+                font-weight: bold;
+                color: #000000;
+                margin-left: .3em;
+              }
+             
+       .block{
+        margin-top: 1%;
+        border: 1px solid rgb(0, 0, 0);
+        
+    }
+    .intro{
+        
+        background-color:#0096ff;
+        padding: 1%;
+        align-content: center;
+        align-items: center;
+    }
+    h3{
+        color:white;
+        background-color: #0096ff;
+        
+    }
+    .gap{
+        margin: 2%;
+    }
+    .gapp{
+        
+        background-color: #0096ff;
+        color:white;
+    }
+    p.cardcontents{
+        text-align: justify;
+        margin: 1%;
+        margin-left: 2%;
+        white-space: initial;
+      }
+      p.title{
+        text-align: justify;
+        font-size:1.5rem;
+        color: rgb(0, 0, 0);
+        text-decoration: bold;
+        font-weight: bold;
+      }
+     
+
+      table {
+        padding: 1%;
+        border-collapse: collapse;
+        width: 97%;
+        margin-left: 5px;
+        border: 1px solid rgb(0, 0, 0);
+    }
+    
+    th {
+        border: 1px solid #000000;
+        text-align: left;
+        color: white;
+        background-color: #1976D2;
+        padding: 1%;
+        margin: 1%;
+    }
+    
+    td{
+    padding: 1%;
+    margin: 1%;
+    }
+    .hide {
+        display: none;
+      }
+}

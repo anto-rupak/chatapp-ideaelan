@@ -1,0 +1,88 @@
+
+<ion-header>
+  <ion-navbar hideBackButton text-center>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{reservationTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-row [class.hide]="userType" class="rowalign" >
+        <ion-col >
+           <p class="dropdown">Facility</p>
+      </ion-col>
+      <ion-col class="colalign">
+         <ion-select [(ngModel)]="facilityId" placeholder='Facility' multiple="false" (ionChange)="updateChange()"  [disabled]="selectOption">
+            <ion-option *ngIf="emptyDropdown" selected>No Records Found</ion-option>  
+             <ion-option *ngFor="let facility of userFacilitiesJson; let i = index;" selected="{{(i==0)}}" value="{{facility.GroupId}}">{{facility.GroupName}}</ion-option>
+             </ion-select>
+       </ion-col>  
+    </ion-row>
+    
+    <hr [class.hide]="userType">
+   
+     <ion-grid>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+     
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-label>   
+            <button ion-button id="pistartbutton" >
+                <ion-datetime picker date [(ngModel)]="startDate" max="2099" min="1990" (ionChange)="startdatetime($event)"></ion-datetime>
+              <ion-icon name='calendar'></ion-icon> <br>  <br><label class="btninlabel">Start Date</label>
+              </button>
+           </ion-label>
+        </div>
+        <div class="date_times">{{startDate| date: "MM-dd-yyyy"}}</div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-label>   
+            <button ion-button id="piendbutton" >
+                <ion-datetime picker date [(ngModel)]="endDate" (ionChange)="enddatetime($event)" max="2099" min="1990"></ion-datetime>
+
+              <ion-icon name='calendar'></ion-icon> <br>  <br><label class="btninlabel">End Date &nbsp; &nbsp;</label></button>
+       
+          </ion-label>
+        </div>
+        <div class="date_timee">{{endDate   | date: "MM-dd-yyyy"}}</div>
+      </ion-col>
+      <ion-col>
+      
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+    <div text-center ><button ion-button (click)="buttonRequest()" class="dateButton">Go</button></div>  
+    <ion-card-content class="cardalign" *ngIf='!facStatus'>No Records Found</ion-card-content>
+      
+  <div *ngIf='facStatus'>
+  <ion-card *ngFor="let reservationAccess of userReservtionJson; let i = index;" [ngSwitch]=reservationAccess.Status (click)='actionSheetMethod(reservationAccess)'>
+  <div class="cardheading">{{reservationAccess.ResourceName}}</div>
+  <div class="cardsubheading">User : {{reservationAccess.UserFullName}}</div>
+  <div class="cardcontainertext">
+    <span class="cardlefttext">Lab : {{reservationAccess.LabName}}</span>
+     <span class="cardrighttext">{{reservationAccess.SessionType}}</span>
+    </div>
+  <div class="cardsubtext" [class.hide]="!userType" *ngIf="reservationAccess.GroupType!='P'">Account Code : {{reservationAccess.AccountCode}}</div>
+  <div class="cardsubtext" [class.hide]="!userType" *ngIf="reservationAccess.GroupType=='P'">PO Number : {{reservationAccess.AccountCode}}</div>
+  <div *ngSwitchCase="'Approved'" class="cardcontainertext">
+    <span class="cardstatus" >Status : </span>
+    <span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{reservationAccess.Status}}
+    </span>
+  </div>
+  <div *ngSwitchCase="'Waitlisted'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{reservationAccess.Status}}</span></div>
+  <div *ngSwitchCase="'Rejected'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusred"> <ion-icon name="close-circle" class="text"></ion-icon> {{reservationAccess.Status}}</span></div>
+  <div *ngSwitchCase="'Pending'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusred"><ion-icon name="close-circle" class="text"></ion-icon> {{reservationAccess.Status}}</span></div>
+  <div *ngSwitchCase="'Upcoming'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{reservationAccess.Status}}</span></div>
+  <div *ngSwitchCase="'Elapsed'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusred"><ion-icon name="close-circle" class="text"></ion-icon> {{reservationAccess.Status}}</span></div>
+  <div class="cardcontainertext">
+    <span class="cardlefttime"> <ion-icon name="time" class="text"></ion-icon> {{reservationAccess.strStartTime}}</span> 
+    <span class="cardrighttime"><ion-icon name="time" class="text"></ion-icon> {{reservationAccess.strEndTime}}</span>
+  </div>
+  </ion-card>
+  </div>
+</ion-content>

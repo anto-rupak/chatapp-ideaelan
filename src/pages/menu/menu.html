@@ -1,0 +1,22 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-navbar hideBackButton menuClose>
+      <ion-title text-center>
+        Idea Elan
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+    <!--Modified by Anto Rupak-->
+
+    <ion-item tappable menuClose *ngFor="let p of pages" (tap)="openPage(p)" class="menustyle">
+      <ion-row class="menuDesign">
+        <img src="{{p.icon}}">
+        <span style="margin-top: 1rem;margin-left: .5em;">{{p.title}}</span>
+      </ion-row>
+    </ion-item>
+
+  </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnable="true">
+</ion-nav>

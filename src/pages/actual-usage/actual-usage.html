@@ -1,0 +1,100 @@
+<!--Created by Anto Rupak-->
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Actual Usage</ion-title>
+    <ion-buttons end>
+      <div (click)='reset()'>
+        <ion-icon name="refresh" class="iconstyle"></ion-icon>
+      </div>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <!-- <ion-item *ngIf='admin'>
+    <ion-label>
+      User
+    </ion-label>
+    <ion-select placeholder='' multiple="false" [(ngModel)]="resUserId" (ionChange)="GetProjectDetails(resUserId,1)">
+      <ion-option *ngFor="let resource of resourceJson" value="{{resource.UserId}}" >{{resource.UserName}}
+      </ion-option>
+    </ion-select>
+  </ion-item>-->
+  <ion-item  *ngIf ='!isprojectDisabled'>
+    <ion-label>
+      Project/Membership <span *ngIf="isProjectMand">*</span>
+    </ion-label>
+    <ion-select placeholder='' multiple="false" [(ngModel)]="projectId" id="project" [disabled]="!connectivityFlag"
+      (ionChange)="projectOnChangeHandeler(projectId,1)">
+      <ion-option *ngIf='statusProject' value="0">No Records Found</ion-option>
+      <ion-option *ngIf='!statusProject' value='0' selected>Select Project Id</ion-option>
+      <ion-option *ngFor="let project of projectJson" value="{{project.ProjectId}}">{{project.ProjectName}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item id="page-select2">
+    <ion-label>
+      Lab*
+    </ion-label>
+    <ion-select placeholder='' multiple="false" [(ngModel)]="labId" (ionChange)="GetAccountDetails(labId,1)"
+      [disabled]="!connectivityFlag">
+      <ion-option *ngIf='statusLab' value="0">No Records Found</ion-option>
+      <ion-option value='0' *ngIf='!statusLab'>Select Lab Id</ion-option>
+      <ion-option *ngFor="let lab of labJson" value="{{lab.GroupId}}">{{lab.GroupName}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item id="page-select3"  [hidden]="isAccountTrue">
+    <ion-label>
+      {{labval}}*
+    </ion-label>
+    <ion-select placeholder='' multiple="false" [(ngModel)]="accountCodeId"
+      (ionChange)="GetSessionDetails(accountCodeId)" [disabled]="!connectivityFlag">
+      <ion-option *ngIf='statusAccount' value="0">No Records Found</ion-option>
+      <ion-option selected value='0' *ngIf='!statusAccount'>{{labval}}</ion-option>
+      <ion-option *ngFor="let AccCode of accountJson" value="{{AccCode.GroupAccountCodeId}}">{{AccCode.AccountCode}}
+      </ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item id="page-select4">
+    <ion-label>
+      Session*
+    </ion-label>
+    <ion-select placeholder='' multiple="false" [(ngModel)]="sessionId" (ionChange)="GetAdminDetails(sessionId)"
+      [disabled]="!connectivityFlag">
+      <ion-option *ngIf='statusSession' value="0">No Records Found</ion-option>
+      <ion-option selected value='0' *ngIf='!statusSession'>Select Session Code</ion-option>
+      <ion-option *ngFor="let Session of sessionJson" value="{{Session.SessionMapId}}">{{Session.SessionType}}
+      </ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item id="page-select7" [hidden]="adminSelection">
+    <ion-label>
+      Admin*
+    </ion-label>
+    <ion-select placeholder='Select Admin' multiple="true" [(ngModel)]="adminId">
+      <ion-option *ngFor="let Admin of AdminJson" value="{{Admin.AdminId}}">{{Admin.UserName}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item id="page-select7" [hidden]="!isTagOpenUp">
+    <ion-label>
+      Tags<span *ngIf="isTagMandatory">*</span>
+    </ion-label>
+    <ion-select placeholder='Select Tags' multiple="true" [(ngModel)]="tagId">
+      <ion-option *ngFor="let tags of tagJson" value="{{tags.TagId}}">{{tags.TagName}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-row center>
+    <ion-col text-center>
+      <button id="page-button3" ion-button color="positive" (click)='alertConfirmActualUsage()'>
+        Start Usage
+      </button>
+    </ion-col>
+  </ion-row>
+
+
+</ion-content>

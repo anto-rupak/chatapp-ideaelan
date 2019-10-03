@@ -1,0 +1,104 @@
+page-supplies-order {
+    #startbutton{
+        background-color: red;
+        width: 10rem;
+    }
+    #endbutton{
+        background-color: green;
+        width: 10rem;
+    }
+    .owl-dt-container {
+        font-size: 1.3em;
+    }
+    
+    .select .select-icon {
+        margin-right: 1em;
+    }
+    
+    .select .select-icon .select-icon-inner {
+        color: #0096ff;
+    }
+    button {
+        background-color: transparent;
+    }
+    
+    .picker .picker-col {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        padding: 0 5px;
+      }
+    ion-select {
+        height: 35px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: left;
+        width: 50%;
+        border: 1px solid rgb(0, 0, 0);
+        max-width: 50%; 
+        
+      } 
+      .datetime-text{
+          display: none;
+      }
+      .label {
+        margin: 5px 0px 0px 0;
+    }
+    p.dropdown{
+        font-size: 1.8rem;
+        font-weight: normal;
+        color: #1976D2;
+      }
+      .col {
+        padding: 0px; 
+        position: relative;
+        width: 100%;
+        margin: 0;
+        min-height: 1px;
+        -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+      .card-content {
+        padding: 2px 8px;
+        font-size: 1.4rem;
+        line-height: 1.5;
+      }
+      div.cardcontents{
+        text-align: justify;
+        margin: 1%;
+        margin-left: 2%;
+        white-space: initial;
+      }
+      ion-list {
+        margin-top: 15px;
+        margin-bottom: -5px;
+        border-bottom: 0.1rem;
+        text-align: left;
+        margin-left: 5px;
+      }
+      
+      .disp{
+        border: 1px solid #000000;
+      }
+    p.cardcontents{
+      text-align: justify;
+      overflow: initial;
+      white-space: initial;
+      margin: 1%;
+      margin-left: 2%;
+      white-space: initial;
+    }
+    .text-input {
+      margin: 0px 0px 0px 0px !important; 
+ 
+  }
+  .toolbar-content{
+    z-index:10 !important;
+    bottom:0 !important;
+  }
+}

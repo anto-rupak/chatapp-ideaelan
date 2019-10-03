@@ -1,0 +1,105 @@
+
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sample Submission</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <p class="dropdown">Sample Submission/Service Requests</p>
+  <ion-grid>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-label>
+            <button ion-button id="pistartbutton">
+              <ion-datetime picker date [(ngModel)]="startDate" max="2099" min="1990"
+                (ionChange)="startdatetime($event)"></ion-datetime>
+                <ion-icon name='calendar'></ion-icon> <br> <br><label class="btninlabel">Start Date</label>
+            </button>
+          </ion-label>
+        </div>
+        <div class="date_times">{{startDate | date: "MM-dd-yyyy"}}</div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-label>
+            <button ion-button id="piendbutton">
+              <ion-datetime picker date [(ngModel)]="endDate" (ionChange)="enddatetime($event)" max="2099" min="1990">
+              </ion-datetime>
+
+              <ion-icon name='calendar'></ion-icon> <br> <br><label class="btninlabel">End Date &nbsp; &nbsp;</label>
+            </button>
+
+          </ion-label>
+        </div>
+        <div class="date_timee">{{endDate | date: "MM-dd-yyyy"}}</div>
+      </ion-col>
+      <ion-col>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div text-center><button ion-button  class="dateButton" (click)="goButtonRequest()">Go</button></div>
+  <ion-card-content *ngIf='!sampleStatus'>No Records Found</ion-card-content>
+  <!--
+  <div *ngIf='sampleStatus'>
+
+  
+    <ion-card *ngFor="let sampleAccess of sampleRequestJson; let i = index;"
+      [ngSwitch]=sampleAccess.WorkOrderStatus.trim() (click)="sampleDetail(sampleAccess)">
+      <ion-card-content>
+        <b>{{sampleAccess.RollNumber}}</b> <br />
+        Template : {{sampleAccess.TemplateName}} <br />
+        Facility : {{sampleAccess.FacilityName}} <br />
+        Lab : {{sampleAccess.LabName}} <br />
+        <div *ngIf="sampleAccess.WorkOrderStatus.trim()=='Approval Process (Cancel)'">
+            Status :  <span class="rejected">{{sampleAccess.WorkOrderStatus}}</span>
+        </div>
+        <div *ngIf="sampleAccess.WorkOrderStatus.trim()!='Approval Process (Cancel)'">
+            Status : <span class="approved">{{sampleAccess.WorkOrderStatus}}</span>
+        </div>
+       
+        Date : {{sampleAccess.strCreatedDate}}
+        <br />
+        <div *ngIf="sampleAccess.SamplesDropped" class="approved">Samples Dropped</div>
+
+      </ion-card-content>
+
+    </ion-card>
+  </div>
+
+  -->
+  <div *ngIf='sampleStatus'>
+    
+    <ion-card *ngFor="let sampleAccess of sampleRequestJson; let i = index;"
+    [ngSwitch]=sampleAccess.WorkOrderStatus.trim() (click)="sampleDetail(sampleAccess)">
+        <div class="cardheading">{{sampleAccess.RollNumber}}</div>
+        <div class="cardsubheading">Template : {{sampleAccess.TemplateName}}</div>  
+        <div class="cardsubtext" >Facility : {{sampleAccess.FacilityName}}</div>
+        <div class="cardsubtext" >Lab : {{sampleAccess.LabName}}</div>     
+        <div *ngIf="sampleAccess.WorkOrderStatus.trim()!='Approval Process (Cancel)'" class="cardcontainertext">
+            <span class="cardstatus" >Status :           
+            </span>
+            <span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{sampleAccess.WorkOrderStatus}}
+            </span>
+          </div>
+        <div *ngIf="sampleAccess.WorkOrderStatus.trim()=='Approval Process (Cancel)'" class="cardcontainertext">
+          <span class="cardstatus" >Status : </span>
+          <span class="cardstatusred"> <ion-icon name="close-circle" class="text"></ion-icon> {{sampleAccess.WorkOrderStatus}}
+          </span>
+        </div>
+        <div class="cardsubtext" >Date : {{sampleAccess.strCreatedDate}}</div> 
+        <div *ngIf="sampleAccess.SamplesDropped" class="cardcontainertext">
+         <span class="cardstatusgreen">Samples Dropped </span> </div>
+      </ion-card>
+  </div>
+</ion-content>

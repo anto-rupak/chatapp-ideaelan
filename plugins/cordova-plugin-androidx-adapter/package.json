@@ -1,0 +1,41 @@
+{
+  "_from": "cordova-plugin-androidx-adapter",
+  "_id": "cordova-plugin-androidx-adapter@1.0.2",
+  "_inBundle": false,
+  "_integrity": "sha512-ajeH7KdjXC/QR3QflYZbhgrEeMW/s7UFUOuRqDB/KLRB1DScbRBzAO8UyJexfVMDh8tgjwgU0Lg6cMhfB7SlEg==",
+  "_location": "/cordova-plugin-androidx-adapter",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-androidx-adapter",
+    "name": "cordova-plugin-androidx-adapter",
+    "escapedName": "cordova-plugin-androidx-adapter",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-androidx-adapter/-/cordova-plugin-androidx-adapter-1.0.2.tgz",
+  "_shasum": "b214e25f6a042f8d152e2575219deb6ee82f6cbb",
+  "_spec": "cordova-plugin-androidx-adapter",
+  "_where": "C:\\Users\\Admin\\Desktop\\testing phase 2",
+  "author": {
+    "name": "Dave Alden"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "performance-now": "^2.1.0",
+    "q": "^1.4.1",
+    "recursive-readdir": "^2.2.2"
+  },
+  "deprecated": false,
+  "description": "Cordova/Phonegap plugin to migrate any code which references the legacy Android Support Library to the new AndroidX mappings in a Cordova Android platform project.",
+  "devDependencies": {},
+  "license": "MIT",
+  "name": "cordova-plugin-androidx-adapter",
+  "version": "1.0.2"
+}

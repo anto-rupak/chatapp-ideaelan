@@ -1,0 +1,104 @@
+<ion-header>
+
+  <ion-navbar text-center >
+    <ion-toolbar style="background-color:white">
+   <!--<ion-buttons start>
+        <button (click)="onBackButton()" royal>
+          <ion-icon name="arrow-round-back" style='zoom:1;color: #0096ff'></ion-icon>
+        </button>
+
+      </ion-buttons>-->
+      
+      <ion-title>{{pageType}}</ion-title> 
+    </ion-toolbar>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding [ngSwitch]=pageType>
+  <div *ngSwitchCase="'Report Issue'">
+    <ion-list>
+      <p>Subject*</p>
+      <ion-item>
+        <ion-input type="text" placeholder='Enter Subject here' [(ngModel)]="subject" style=" margin: 1%;">
+        </ion-input>
+      </ion-item>
+
+      <p>Description*</p>
+      <ion-item>
+        <ion-textarea [(ngModel)]="description" name="note" autocomplete="on" maxLength="500"
+          placeholder='Enter Description here' autocorrect="on" style=" margin: 1%;"></ion-textarea>
+      </ion-item>
+      <p>Issue Type</p>
+      <ion-item>
+
+        <ion-label></ion-label>
+        <ion-select [(ngModel)]="issueTypeValue" multiple="false" style=" border: 1px solid #000000; margin: 1%">
+          <ion-option value="0" selected>Minor</ion-option>
+          <ion-option value="1">Critical</ion-option>
+        </ion-select>
+      </ion-item>
+  
+      <ion-row >
+          <ion-col col-9>
+              <button ion-button class="butn" [disabled]="recording" fill="outline" (click)='presentActionSheet()' >Add Files
+                </button>
+              {{flname}}
+          </ion-col>
+        <ion-col col-3>  <div [class.hide]="toogleAudio"><button [class.hide]="recording" ion-button icon-only (click)='recordButton()'>
+          <ion-icon name="mic"></ion-icon>
+        </button> <button [class.hide]="!recording" ion-button icon-only style="background-color: red;" (click)='stopRecord()'>
+            <ion-icon name="mic"></ion-icon>
+          </button></div>
+          <div [class.hide]="toogleAudio" id="chronoExample">
+            <div class="timer" [class.hide]="!recording">{{timerValue}}</div>
+          </div>
+           </ion-col>
+         
+        </ion-row>
+      <ion-row center>
+        <ion-col text-center>
+          <button ion-button  [disabled]="recording" (click)='sendReportIssue()'>Submit</button>
+        </ion-col>
+      </ion-row>
+
+    </ion-list>
+  </div>
+  <div *ngSwitchCase="'Create Ticket'">
+    <p>Technical Issue Type</p>
+    <ion-item>
+
+      <ion-label></ion-label>
+      <ion-select [(ngModel)]="issueTypeValue" placeholder='Issue Type' multiple="false"
+        style=" border: 1px solid #000000; margin: 1%">
+        <ion-option value="ZS1000    110" selected>The device suffered physical damage</ion-option>
+        <ion-option value="ZS1000    130">The device is not powering up</ion-option>
+        <ion-option value="ZS1000    140">The device is displaying an error message</ion-option>
+        <ion-option value="ZS1000    150">The device is not working as expected</ion-option>
+        <ion-option value="ZS1000    160">The device is returning insufficient results</ion-option>
+        <ion-option value="ZS1000    270">I have a question about the usage of the device</ion-option>
+        <ion-option value="ZS1000    850">I require assistance for installation/relocation</ion-option>
+        <ion-option value="ZS1000    999">Something else</ion-option>
+      </ion-select>
+    </ion-item>
+    <p>Description*</p>
+    <ion-item>
+      <ion-textarea [(ngModel)]="description" name="note" autocomplete="on" maxLength="500"
+        placeholder='Enter Description here' autocorrect="on" style=" margin: 1%;"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-col>
+        <button ion-button fill="outline" (click)='presentActionSheet()' style="background-color: green">Select image
+        </button>
+        <span [hidden]=ico>{{flname}}</span>
+      </ion-col>
+
+    </ion-item>
+    <ion-row center>
+      <ion-col text-center>
+        <button ion-button (click)='createZesissServiceRequest()'>Submit</button>
+      </ion-col>
+    </ion-row>
+
+  </div>
+</ion-content>

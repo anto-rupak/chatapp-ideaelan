@@ -1,0 +1,113 @@
+<ion-header hideBackButton="true">
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title ion-align='center'>View Issue</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row>
+    <ion-col col-4><b>Issue # </b></ion-col>
+    <ion-col col-6>{{issue}}</ion-col>
+  </ion-row>
+  <hr>
+  <ion-row>
+    <ion-col col-4><b>Issue Type </b></ion-col>
+    <ion-col col-6>{{issueType}}</ion-col>
+  </ion-row>
+  <hr>
+  <ion-row>
+    <ion-col col-4><b>Subject </b></ion-col>
+    <ion-col col-6>{{subject}}</ion-col>
+  </ion-row>
+  <hr>
+  <ion-row>
+    <ion-col col-4><b>Description </b></ion-col>
+    <ion-col col-6 [innerHTML]='desc'>{{desc}}</ion-col>
+  </ion-row>
+  <hr>
+  <ion-row>
+    <ion-col col-4><b>Intrument </b></ion-col>
+    <ion-col col-6>{{inst}}</ion-col>
+  </ion-row>
+  <hr>
+  <ion-row>
+    <ion-col col-4><b>Created Date </b></ion-col>
+    <ion-col col-6>{{cdate | date: "MM-dd-yyyy"}}</ion-col>
+  </ion-row>
+  <hr>
+  <ion-row>
+    <ion-col col-4><b>Created By </b></ion-col>
+    <ion-col col-6>{{cby}}</ion-col>
+  </ion-row>
+  <hr>
+  <div [hidden]="this.bottomHide">
+    <ion-row style="align-items: center">
+      <ion-col col-4>
+        <p class="dropdown">Change Status</p>
+      </ion-col>
+      <ion-col col-6>
+        <ion-select [(ngModel)]="cstatus" placeholder='Select Status' multiple="false" (ionChange)="updateChange()">
+
+          <ion-option *ngIf='!userType'>In Progress</ion-option>
+          <ion-option>Closed</ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <hr>
+    <button [class.hide]="!audioPLay" ion-button icon-only (click)='playAudio()'>
+        <ion-icon name="play"></ion-icon>
+      </button> 
+    <ion-item>
+      <ion-textarea [(ngModel)]="message" placeholder="Message"></ion-textarea>
+    </ion-item>
+    
+    <br />
+    <div *ngIf="showZeissTicketDetails">
+      <ion-item>
+        <ion-row> <b>Zeiss Ticket Details</b></ion-row>
+      </ion-item>
+
+      <ion-item>
+        <ion-row>
+          <ion-col col-4><b>Ticket-ID </b></ion-col>
+          <ion-col col-6>{{ZeissTicketId}}</ion-col>
+        </ion-row>
+
+      </ion-item>
+      <ion-item>
+        <ion-row>
+          <ion-col col-4><b>Date </b></ion-col>
+          <ion-col col-6>{{ZeissTicketSubmitDate}}</ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item>
+        <ion-row>
+          <ion-col col-4><b>Issue Type </b></ion-col>
+          <ion-col col-6>{{ZeissSymptomText}}</ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item>
+        <ion-row>
+          <ion-col col-4><b>Description </b></ion-col>
+          <ion-col col-6>{{ZeissTicketDescription}}</ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item>
+        <ion-row>
+          <ion-col col-4><b>Status</b></ion-col>
+          <ion-col col-6>{{ZeissTicketStatus}}</ion-col>
+        </ion-row>
+      </ion-item>
+    </div>
+    <div text-center><button ion-button (click)='updateRequest()' block>Update</button></div>
+    <div text-center *ngIf="isZeiss"><button ion-button block style="background-color: green"  *ngIf="!showZeissTicketDetails"
+        (click)='zeissRequest()'>Create Zeiss Ticket </button></div>
+  </div>
+
+</ion-content>

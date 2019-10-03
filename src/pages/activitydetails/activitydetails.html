@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Activity Dashboard</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content [ngSwitch]=pageType >
+  <div *ngSwitchCase="'Facility'">
+    <p class="cardslayout">Facility Access Request</p>
+ 
+    <ion-card-content *ngIf='!facStatus'>No Records Found</ion-card-content>
+
+    <div *ngIf='facStatus'>
+      <ion-card *ngFor="let facilityAccess of userFacilitiesJson; let i = index;"  (click)="actionSheetMethod(facilityAccess)" >
+      <div class="cardsubheading">{{facilityAccess.UserName}}</div>
+      <div class="cardsubtext"> Institution : {{facilityAccess.Institution}}</div>
+      <div class="cardsubtext"> Lab : {{facilityAccess.Lab}}</div>
+      <div class="cardsubtext"> Date : {{facilityAccess.CreatedDate}}</div>
+      </ion-card>
+    </div>
+  </div>
+  
+
+  <div *ngSwitchCase="'Instruments'">
+    <p class="cardslayout">Instruments Access Request</p>
+
+    <ion-card-content *ngIf='!facStatus'>No Records Found</ion-card-content>
+  <div *ngIf='facStatus'>
+    <ion-card *ngFor="let facilityAccess of userFacilitiesJson; let i = index;"
+    (click)='actionSheetMethod(facilityAccess)' >
+    <div class="cardsubheading">{{facilityAccess.ResourceName}}</div>
+    <div class="cardsubtext"> User : {{facilityAccess.UserName}}</div>
+    <div class="cardsubtext"> Date : {{facilityAccess.strCreatedDate}}</div>
+    </ion-card>
+  </div>
+  </div>
+
+  <div *ngSwitchCase="'Reservation'">
+    <p class="cardslayout">Reservation</p>
+
+    <ion-card-content *ngIf='!facStatus'>No Records Found</ion-card-content>
+        
+  <div *ngIf='facStatus'>
+    <ion-card *ngFor="let reservationAccess of userReservtionJson; let i = index;" [ngSwitch]=reservationAccess.Status  (click)='actionSheetMethod(reservationAccess)'>
+    <div class="cardheading">{{reservationAccess.ResourceName}}</div>
+    <div class="cardsubheading">User : {{reservationAccess.UserFullName}}</div>
+    <div class="cardcontainertext">
+      <span class="cardlefttext">Lab : {{reservationAccess.LabName}}</span>
+       <span class="cardrighttext">{{reservationAccess.SessionType}}</span>
+      </div>
+    <div class="cardsubtext" *ngIf="reservationAccess.GroupType!='P'">Account Code : {{reservationAccess.AccountCode}}</div>
+    <div class="cardsubtext" *ngIf="reservationAccess.GroupType=='P'">PO Number : {{reservationAccess.AccountCode}}</div>
+    <div *ngSwitchCase="'Approved'" class="cardcontainertext">
+      <span class="cardstatus" >Status : </span>
+      <span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{reservationAccess.Status}}
+      </span>
+    </div>
+    <div *ngSwitchCase="'Waitlisted'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{reservationAccess.Status}}</span></div>
+    <div *ngSwitchCase="'Rejected'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusred"> <ion-icon name="close-circle" class="text"></ion-icon> {{reservationAccess.Status}}</span></div>
+    <div *ngSwitchCase="'Pending'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusred"><ion-icon name="close-circle" class="text"></ion-icon> {{reservationAccess.Status}}</span></div>
+    <div *ngSwitchCase="'Upcoming'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{reservationAccess.Status}}</span></div>
+    <div *ngSwitchCase="'Elapsed'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusred"><ion-icon name="close-circle" class="text"></ion-icon> {{reservationAccess.Status}}</span></div>
+    <div class="cardcontainertext">
+      <span class="cardlefttime"> <ion-icon name="time" class="text"></ion-icon> {{reservationAccess.strStartTime}}</span> 
+      <span class="cardrighttime"><ion-icon name="time" class="text"></ion-icon> {{reservationAccess.strEndTime}}</span>
+    </div>
+    </ion-card>
+    </div>
+ 
+  </div> 
+
+  
+  <div *ngSwitchCase="'Sample'">
+    <p class="cardslayout">Sample Submission/Service Requests</p>
+
+    <ion-card-content *ngIf='!facStatus'>No Records Found</ion-card-content>
+    <div *ngIf='facStatus'>
+      <ion-card *ngFor="let facilityAccess of userFacilitiesJson; let i = index;"
+      [ngSwitch]=facilityAccess.WorkOrderStatus.trim() (click)='sampleDetailPage(facilityAccess)'>
+      <div class="cardheading">{{facilityAccess.RollNumber}}</div>
+      <div class="cardsubheading">Template : {{facilityAccess.TemplateName}}</div>
+      <div class="cardsubtext" >User : {{facilityAccess.UserFullName}}</div>
+      <div class="cardsubtext" >Lab : {{facilityAccess.LabName}}</div>
+      <div class="cardsubtext" >PI : {{facilityAccess.PIName}}</div>
+      
+      <div  *ngIf="facilityAccess.WorkOrderStatus.trim()=='Approval Process (Cancel)'" class="cardcontainertext">
+        <span class="cardstatus" >Status : </span>
+        <span class="cardstatusgreen"><ion-icon name="close-circle" class="text"></ion-icon> {{facilityAccess.WorkOrderStatus}}
+        </span>
+      </div>
+      <div  *ngIf="facilityAccess.WorkOrderStatus.trim()!='Approval Process (Cancel)'" class="cardcontainertext">
+        <span class="cardstatus" >Status : </span>
+        <span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{facilityAccess.WorkOrderStatus}}
+        </span>
+      </div>
+      
+      <div class="cardsubtext" >Date : {{facilityAccess.strCreatedDate}}</div>
+    </ion-card>
+      </div>
+      <!--
+
+     
+    <ion-card *ngFor="let facilityAccess of userFacilitiesJson; let i = index;"
+      [ngSwitch]=facilityAccess.WorkOrderStatus.trim() (click)='sampleDetailPage(facilityAccess)'>
+
+     
+      <p class="cardcontents"><b>{{facilityAccess.RollNumber}}</b></p>
+      <p class="cardcontents">Template : {{facilityAccess.TemplateName}}</p>
+      <p class="cardcontents">User : {{facilityAccess.UserFullName}}</p>
+      <p class="cardcontents">Lab : {{facilityAccess.LabName}}</p>
+      <p class="cardcontents">PI : {{facilityAccess.PIName}}</p>
+      <div  *ngIf="facilityAccess.WorkOrderStatus.trim()=='Approval Process (Cancel)'">
+        <div class="cardcontents">Status : <span class="rejected">{{facilityAccess.WorkOrderStatus}}</span></div>
+      </div>
+      <div  *ngIf="facilityAccess.WorkOrderStatus.trim()!='Approval Process (Cancel)'">
+      <div class="cardcontents">Status : <span class="approved">{{facilityAccess.WorkOrderStatus}}</span></div>
+     </div>
+      <p class="cardcontents">Date : {{facilityAccess.strCreatedDate}}</p>
+     
+    </ion-card>
+     -->
+  </div>
+</ion-content>

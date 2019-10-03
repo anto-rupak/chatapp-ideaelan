@@ -1,0 +1,252 @@
+.select {
+  padding: 12px 5px 7px 6px;
+}
+
+.datetime-ios {
+  padding: inherit;
+}
+
+  .bar-button-default, .bar-button-clear-default, .bar-button-default {
+    color: #0096ff;
+}
+
+
+.myPage {
+  .myActionSheetBtnStyle {
+      color: #0096ff;
+  }
+}
+.toolbar-title {
+  color: #0096ff;
+  text-align: center;
+  padding: 0px 0px 1px;
+  margin: 0px;
+    // now center the title
+}
+.toolbar-ios ion-title{
+  position: relative !important;
+  padding: 0px;
+  margin: 0px;
+  top:-20px;
+}
+
+ion-navbar{
+  background-color: white;
+}
+.list{
+  margin: -1px 0 5px;
+}
+
+.searchbar .searchbar-input {
+  background-color: #fff;
+}
+.button {
+  text-transform: none;
+}
+
+
+.toolbar-content {
+  position: absolute;  // take a flexbox item out of the flow
+  //width: 100%;      
+  z-index: -1;   // take all the space, including that of the buttons on the left and right side
+  right: 0;
+  left: 0;
+}
+.toolbar-background {
+  border-color: #ffffff;
+  background: #ffffff;
+}
+
+.item-ios [item-right], .item-ios [item-end]{
+  margin:0px !important;
+}
+
+[col-5]{
+  padding: 0px !important;
+}
+
+
+
+.bar-buttons ion-icon{
+	font-size:34px !important;
+	font-weight:bolder !important;
+}
+ 
+ion-select {   
+  height: 35px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: left;
+  border: 1px solid rgb(0, 0, 0);
+  max-width: 100%;
+  
+} 
+
+.item.activated{
+  background-color: #0096ff; 
+}
+.content{
+  color: #000;
+  background-color: #fff;
+}
+.grid{
+padding: 0px;
+}
+
+ion-card{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border-radius: 0.1em;
+}
+.cardheading{
+  margin-left: .5em;
+  margin-right: .5em;
+  margin-top: .5em;
+  margin-bottom: .2em;
+  color:#0096ffd9;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.cardsubtext{
+  margin-left: .5em;
+  margin-right: .5em;
+  margin-top: .3em;
+  margin-bottom: .3em;
+  color:#000000bf;
+  font-size: 1.1em;
+}
+.cardsubheading{
+  margin-left: .5em;
+  margin-right: .5em;
+  margin-top: .2em;
+  margin-bottom: .2em;
+  color:#000000bf;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.cardcontainertext{
+  margin-left: .5em;
+  margin-right: .5em;
+  margin-top: .3em;
+  margin-bottom: .3em;
+}
+.cardstatus{
+  color:#000000bf;
+  font-size: 1.1em;
+}
+.cardstatusgreen{
+  color:#4CAF50bf;
+  font-size:  1.1em;;
+}
+.cardstatusred{
+  color:#f44336bf;
+  font-size: 1.1em;
+}
+.cardstatusorange{
+  color:orange;
+  font-size:  1.1em;;
+}
+
+
+.cardrighttext{
+  float: right;
+  color:#000000bf;
+  font-size: 1.1em;
+  margin-right: 0.2em;
+}
+.cardlefttext{
+  color:#000000bf;
+  font-size: 1.1em;
+}
+ion-icon.text{
+  vertical-align: middle; 
+  font-size: 1.1em;
+ }
+
+.cardrighttime{
+  float: right;
+  margin-top: .2em;
+  margin-bottom: .3em;
+  margin-right: 0.2em;
+  color:#0096ffd9;
+  font-size: 1em;
+}
+.cardlefttime{
+  float: left;
+  margin-top: .2em;
+  margin-bottom: .3em;
+  color:#0096ffd9;
+  font-size: 1em;
+}
+.card{
+  border-radius: 2px;
+  width:calc(100% - 10px);
+  background: #fff;
+  margin:0.35em;
+}
+/*
+Date css
+*/
+.datetime{
+  padding: 1px;
+}
+  .dateButton{
+    width:6em;
+  }
+
+.date_button_centre_align{
+width: 85%;
+margin-left: 10%;
+}
+.label_button_centre_align{
+width: 85%;
+margin-left: 15%;
+margin-bottom: 10%;
+}
+datetime-div{
+  text-align: right;
+  border-bottom: none;
+}
+
+.date_times{
+color: #3AB052;
+font-weight: bold;
+text-align: center;
+margin-right: 8px;
+}
+.date_timee{
+color: 	#F35C49;
+font-weight: bold;
+text-align: center;
+margin-right: 8px;
+}
+
+#piendbutton{
+background-color: #F35C49;
+//width: 10rem;
+}
+#pistartbutton{
+background-color: #3AB052;
+//width: 10rem;
+}
+
+.btninlabel{
+font-size: .9em;
+padding: 4px;
+}
+.item-ios [item-right], .item-ios [item-end]{
+  margin:0px !important;
+}
+
+[col-5]{
+  padding: 0px !important;
+}
+
+
+[col-5] .badge,[col-5] .button{
+  float:right;
+}
+
+[col-7]{
+  white-space: initial;
+}

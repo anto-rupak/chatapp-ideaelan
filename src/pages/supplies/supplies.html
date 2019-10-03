@@ -1,0 +1,185 @@
+<!--
+  Generated template for the SuppliesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar hideBackButton text-center>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Supplies</ion-title>
+    <ion-buttons end>
+      <div (click)="startScanner()">
+        <ion-icon name="qr-scanner" style="color: #0096ff"></ion-icon>
+
+      </div>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>
+      Order Id : <b>{{orderId}}</b>
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      Facility*
+    </ion-label>
+    <ion-select placeholder='' multiple="false" [(ngModel)]="facilityid"
+      (ionChange)="getProductDetailsBasedOnFacility()">
+      <ion-option *ngFor="let facility of userFacilitiesJson; let i = index;" selected="{{(i==0)}}"
+        value="{{facility.GroupId}}">{{facility.GroupName}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <!--  <ion-item *ngIf="isUserOpenUp">
+    <ion-label>
+      User
+    </ion-label>
+    <ion-select placeholder='' multiple="false" [(ngModel)]="user_Id" (ionChange)="userOnChangeHandeler()">
+      <ion-option *ngFor="let user of userJson" value="{{user.UserId}}">{{user.UserName}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item id="page-select1" *ngIf="isprojectDisabled">
+    <ion-label>
+      Project<span *ngIf="isProjectMand">*</span>
+    </ion-label>
+    <ion-select placeholder='' multiple="false" [(ngModel)]="project_Id" (ionChange)="sendLabRequest()">
+      <ion-option *ngIf='status_Proj' value='0' selected>No Records Found</ion-option>
+      <ion-option *ngIf='!status_Proj' value='0' selected>Not Applicable</ion-option>
+      <ion-option *ngFor="let project of project_Json " value="{{project.ProjectId}}">{{project.ProjectName}}
+      </ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item id="page-select2">
+    <ion-label>
+      Lab*
+    </ion-label>
+    <ion-select placeholder='' multiple="false" [(ngModel)]="lab_Id" (ionChange)="accountHandling()">
+
+      <ion-option value='0' selected>Select Lab</ion-option>
+      <ion-option *ngFor="let lab of lab_Json" value="{{lab.GroupId}}">{{lab.GroupName}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item id="page-select3" [hidden]="isAccountOpenup">
+    <ion-label>
+      {{labType}}*
+    </ion-label>
+    <ion-select placeholder='' multiple="false" [(ngModel)]="account_Id" (ionChange)="changeProductBasedOnGrant()">
+      <ion-option *ngIf='status_Account' value="0">No Records Found</ion-option>
+      <ion-option *ngIf='!status_Account' value='0' selected>{{labType}}</ion-option>
+
+      <ion-option *ngFor="let AccCode of account_Json" value="{{AccCode.GroupAccountCodeId}}">{{AccCode.AccountCode}}
+      </ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item id="page-select3">
+      <ion-input type="number" value="" placeholder="Phone Number" [(ngModel)]="phonenumber"></ion-input>
+
+  </ion-item>
+
+  <ion-label>Shipping Address*</ion-label>
+  <ion-row>
+    <ion-col>
+      <ion-textarea [(ngModel)]="shippingAddress"></ion-textarea>
+    </ion-col>
+  </ion-row>-->
+
+
+  <ion-card>
+    <ion-row>
+      <ion-col col-1>
+        <ion-icon name="funnel" style="color: #0096ff;margin-top: 10px;" (click)="filterbyCategory()"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-searchbar [(ngModel)]="searchText" debounce=450 (ionInput)="getSearchResults()"
+          placeholder="Search Products">
+        </ion-searchbar>
+      </ion-col>
+    </ion-row>
+ 
+  </ion-card>
+
+  <ion-item id="page-select3" *ngIf="isFilterOpenUp">
+    <ion-select placeholder='' multiple="false" [(ngModel)]="categoryId" id="filterbycategory"
+      (ionChange)="filterBasedOnCategory()">
+      <ion-option value='0' selected>Select Category</ion-option>
+
+      <ion-option *ngFor="let category of categoryJson" value="{{category.CategoryId}}">{{category.CategoryName}}
+      </ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-card-content *ngIf='!productStatus'>No Records Found</ion-card-content>
+  <!-- <ion-list *ngFor="let products of productJson">
+    <div *ngIf=products.IsActive>
+      <ion-card-content *ngIf='productStatus'>
+        <ion-list text-wrap class="disp">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-9>
+                <p class="cardcontents"><b> {{products.ProductName}}</b></p>
+                <p class="cardcontents">Quantity Per Unit: {{products.QuantityPerUnit}}</p>
+
+              </ion-col>
+              <ion-col offset-4>
+                <p class="cardcontents">Price Per Unit: {{products.UnitPrice}} </p>
+                <ion-icon name="add-circle" (click)="addproduct(products.ProductId)" style="font-size: 25px;">
+                </ion-icon>
+                &nbsp;&nbsp;&nbsp;<b style="font-size: 25px;">{{products.OrderQty}}</b> &nbsp;&nbsp;&nbsp;
+                <ion-icon name="remove-circle" (click)="removeproduct(products.ProductId)" style="font-size: 25px;">
+                </ion-icon>
+
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-list>
+      </ion-card-content>
+    </div>
+  </ion-list>-->
+  <ion-card *ngFor="let products of productJson">
+
+    <ion-card-content>
+
+      <ion-row>
+        <ion-col col-7>
+          <b> {{products.ProductName}}</b>
+        </ion-col>
+        <ion-col>
+          <b> Price Per Unit: {{products.UnitPrice}}</b>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-7>
+          Quantity Per Unit: {{products.QuantityPerUnit}}
+        </ion-col>
+        <ion-col>
+       
+              <ion-icon name="remove-circle" (click)="removeproduct(products.ProductId)"
+              style="font-size: 25px;color: #0096ff">    </ion-icon>
+             <!--<ion-input type="text" placeholder={{products.OrderQty}} value={{products.OrderQty}} (change)="addProductInValue($event, products.ProductId)" style="    border-bottom: 1px solid;"></ion-input>-->
+           &nbsp;&nbsp;&nbsp;<b style="font-size: 25px;">{{products.OrderQty}}</b> &nbsp;&nbsp;&nbsp;
+            <ion-icon name="add-circle" (click)="addproduct(products.ProductId)"
+            style="font-size: 25px;color: #0096ff"></ion-icon>
+     
+
+      
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+
+  </ion-card>
+  <br />
+  <br />
+</ion-content>
+<ion-footer no-shadow>
+  <ion-toolbar position="bottom" style="text-align: center;" *ngIf='productStatus'>
+    <button ion-button block (click)="continueToOrder()">Continue</button>
+  </ion-toolbar>
+</ion-footer>

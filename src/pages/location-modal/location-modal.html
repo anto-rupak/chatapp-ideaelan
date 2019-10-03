@@ -1,0 +1,55 @@
+
+<ion-content class="main-view" >
+  <div class="overlay" ></div>
+  <ion-scroll  class="modal_contents" scrollY=true >
+<ion-list >
+    <ion-title >
+        Location
+      </ion-title>
+  <ion-item>
+    <ion-label >Building</ion-label>
+    <ion-input maxlength="100" type="text" [(ngModel)]="Building"></ion-input>
+
+  </ion-item>
+ 
+  <ion-item>
+    <ion-label >Room</ion-label>
+    <ion-input maxlength="100" type="text" [(ngModel)]="Room"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label >Rack</ion-label>
+    <ion-input maxlength="100"  type="text" [(ngModel)]="Rack"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label >Side</ion-label>
+    <ion-input maxlength="100" type="text" [(ngModel)]="Side"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label >Row</ion-label>
+      <ion-input maxlength="100" type="text" [(ngModel)]="Row"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >Coloumn</ion-label>
+      <ion-input maxlength="100" type="text" [(ngModel)]="Coloumn"></ion-input>
+    </ion-item>
+   
+  
+      <ion-item>
+      <ion-row>
+        <ion-col>
+          <button color="light" full ion-button (click)="close()">Cancel</button>
+        </ion-col>
+        <ion-col>
+        <button full ion-button (click)="returnParticipant()">Update</button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    
+</ion-list>
+
+</ion-scroll>
+
+</ion-content>

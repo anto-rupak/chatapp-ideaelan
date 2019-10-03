@@ -1,0 +1,106 @@
+
+<ion-header hideBackButton="true">
+
+    <ion-navbar>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title ion-align='center'>View Supplies</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content padding>
+      <ion-row>
+          <ion-col class="cols" col-4><b>Order Number</b></ion-col>
+          <ion-col class="cols" col-6>{{ordernumber}}</ion-col>
+        </ion-row>
+        <hr>
+  
+      <ion-row>
+          <ion-col class="cols" col-4><b>User </b></ion-col>
+          <ion-col class="cols"col-6>{{user}}</ion-col>
+        </ion-row>
+        <hr>
+    <ion-row>
+      <ion-col class="cols" col-4><b>Amount </b></ion-col>
+      <ion-col *ngIf="!amount" class="cols"  col-6> 0.00 USD</ion-col>
+      <ion-col *ngIf="amount"  class="cols"  col-6>{{amount | number:'1.2-2'}} USD</ion-col>
+    </ion-row>
+        <hr>
+    <ion-row>
+      <ion-col class="cols" col-4><b>Account Code</b></ion-col>
+      <ion-col class="cols" col-6>{{AccountCode}}</ion-col>
+    </ion-row>
+        <hr>
+     <ion-row>
+      <ion-col class="cols" col-4><b>Project Name</b></ion-col>
+      <ion-col class="cols" col-6>{{projectName}}</ion-col>
+     </ion-row>
+            <hr>
+    <ion-row>
+      <ion-col class="cols" col-4><b>Lab Name</b></ion-col>
+      <ion-col class="cols" col-6>{{labname}}</ion-col>
+    </ion-row>
+        <hr>
+    <ion-row>
+      <ion-col class="cols" col-4><b>Status </b></ion-col>
+      <ion-col class="cols" col-6 >{{description}}</ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+      <ion-col class="cols" col-4><b>Order Date</b></ion-col>
+      <ion-col class="cols" col-6>{{OrderDate}}</ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+        <ion-col class="cols" col-4><b>Category</b></ion-col>
+        <ion-col class="cols" col-6>{{categoryList}}</ion-col>
+      </ion-row>
+      <hr>
+    <ion-row>
+      <ion-col class="cols" col-4><b>Name / Address </b></ion-col>
+      <ion-col class="cols" col-6>{{useraddress}}</ion-col>
+    </ion-row>
+    <hr> 
+  <div *ngIf="piinbox">
+    <ion-row style="align-items: center"><ion-col col-5><b>Order Status</b></ion-col>
+      <ion-col col-6>
+        <ion-select   [(ngModel)]="SupplyStatus" placeholder='status' multiple="false" (ionChange)="updateChange()" >
+                
+          <ion-option value="2">Approved</ion-option>
+          <ion-option value="5">Cancelled</ion-option>
+          
+        </ion-select>
+      </ion-col></ion-row> 
+  </div>
+  <p class="dropdown">Products</p>
+  <ion-card-content class="cardalign" *ngIf='!listjson'>No Records Found</ion-card-content>
+
+
+
+  <!-- 
+
+  <ion-list *ngFor="let products of listjson; let i = index;">
+      <ion-card-content  *ngIf='listjson'>
+       
+        <ion-list  class="disp" >
+           -->
+    <div *ngIf='listjson'>
+    <ion-card *ngFor="let products of listjson; let i = index;">
+    <div class="cardsubheading">Product Name : {{products.ProductName}}</div>
+    <div  class="cardsubtext">Quantity / Unit : {{products.QuantityPerUnit}}</div>
+    <div  class="cardsubtext">Price : {{products.UnitPrice}}</div>
+  </ion-card>
+  </div>
+    <!--
+  </ion-list>
+</ion-card-content>
+
+  </ion-list>
+-->
+
+
+
+  </ion-content>
+  

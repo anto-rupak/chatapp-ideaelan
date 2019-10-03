@@ -1,0 +1,201 @@
+/* Modified by Abey Abraham */
+page-activitydashboard {
+  .select{
+    top: 10px;
+    position: fixed;
+    width: 50%;
+  }
+  .dropcol.col{
+    margin-right: 4px;
+  }
+  p { 
+    display: block;
+    margin-top: 0.8em;
+    margin-bottom: 0.3em;
+    margin-left: 10px;
+    margin-right: 0; }
+  .row{
+    align-items: center;
+    height: 3em;
+
+  }
+     p.cardslayout{
+        text-align: justify;
+        font-size:2rem;
+        color: rgb(0, 0, 0);
+        text-decoration: bold;
+        font-weight: bold;
+    
+      }
+      canvas {
+        padding: 0;
+        margin: auto;
+        display: block;
+        width: 800px;
+    }
+      p.heading{
+        text-align: justify;
+        font-size:2rem;
+        color: #1976D2;
+        text-decoration: bold;
+        
+        p.cardslayout{
+            text-align: justify;
+            font-size:2rem;
+            color: #1976D2;
+            border-bottom: 0.5rem;
+            text-decoration: bold;
+            margin: 1%;
+            
+          }
+      }
+   
+       .block{
+        margin-top: 1%;
+        border: 1px solid rgb(0, 0, 0);
+        
+    }
+    .intro{
+        
+        background-color:#1976D2;
+        padding: 1%;
+        align-content: center;
+        align-items: center;
+    }
+    h3{
+        color:white;
+        background-color: #1976D2;
+        
+    }
+    .gap{
+        margin: 2%;
+    }
+    .gapp{
+        
+        background-color: #1976D2;
+        color:white;
+    }
+    p.cardcontents{
+        text-align: justify;
+        overflow: initial;
+        white-space: initial;
+      }
+      p.title{
+        text-align: justify;
+        font-size:1.5rem;
+        color: rgb(0, 0, 0);
+        text-decoration: bold;
+        font-weight: bold;
+      }
+      p.cardp{
+        padding: 10px;
+        color: #ffffff;
+        font-weight: bold;
+        font-size:1.8rem;
+      }
+      ion-card.facility {
+        position: relative;
+        border-radius : 5px;
+        text-align: left;
+        height: auto;
+        width: auto;
+        border: #fb5a46;
+        background-color:#fb5a46;
+        max-width: 100%;
+       
+      }
+      ion-card.instrument {
+        position: relative;
+        text-align: left;
+        border-radius : 5px;
+        height: auto;
+        width: auto;
+        border: #33a85a;
+        background-color:#33a85a;
+        max-width: 100%;
+        
+      }
+      ion-card.reservation {
+        position: relative;
+        border-radius : 5px;
+        text-align: left;
+        height: auto;
+        width: auto;
+        background-color:#455c86;
+        border: #455c86;
+        max-width: 100%;
+        
+      }
+      ion-card.project {
+        position: relative;
+        border-radius : 5px;
+        text-align: left;
+        height: auto;
+        width: auto;
+        border: #6b6e73;
+        background-color:#6b6e73;
+        max-width: 100%;
+      }
+      ion-card.sample {
+        position: relative;
+        text-align: left;
+        border-radius : 5px;
+        height: auto;
+        width: auto;
+        border: #357df3;
+        background-color:#357df3;
+        max-width: 100%;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        text-align: center;
+      }
+    
+    th {
+        padding: .3em;
+        text-align: center;
+        color: white;
+        font-size:1.5rem;
+    }
+    td{
+        padding: .3em;
+        text-align: center;
+        color: white;
+        font-size:2.5rem;
+    }
+    
+   
+    .hide {
+        display: none;
+      }
+     
+      
+     
+        
+       
+               p.dropdown{
+                font-size: 1.8rem;
+                font-weight: bold;
+                color: #000000;
+                margin-left: .6em;
+              }
+              .col {
+                padding: 0px; 
+                position: relative;
+                width: 100%;
+                margin: 0;
+                min-height: 1px;
+                -webkit-flex-basis: 0;
+                -ms-flex-preferred-size: 0;
+                flex-basis: 0;
+                -webkit-box-flex: 1;
+                -webkit-flex-grow: 1;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+                max-width: 100%;
+              }
+                     
+                   
+    }
+    

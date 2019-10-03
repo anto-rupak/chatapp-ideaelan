@@ -1,0 +1,30 @@
+<!--Created by Anto Rupak-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.js"
+  integrity="sha256-qvPuuRTvNHTt0G2JBmvG1jAORbJm5xmxA+6UW/ZSVf8=" crossorigin="anonymous"></script>
+<ion-header>
+
+  <ion-navbar text-center  hideBackButton *ngIf='pageRedirction'>
+    <ion-toolbar style="background-color:white">
+      <ion-buttons start>
+          <button (click)="goBack()" royal>
+              <ion-icon name="arrow-round-back" style='color: #0096ff'></ion-icon>
+          </button>
+      </ion-buttons>
+      <ion-title>Scheduler</ion-title>
+  </ion-toolbar>
+  </ion-navbar>
+
+  <ion-navbar text-center   *ngIf='!pageRedirction'>
+    <ion-title> 
+      Scheduler
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <p><b>Long press a time slot to schedule.</b></p>
+  <div id='calendar' (swipe)="swipeEvent($event)"></div>
+</ion-content>

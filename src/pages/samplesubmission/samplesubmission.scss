@@ -1,0 +1,51 @@
+page-samplesubmission {
+  ion-icon{
+    vertical-align: middle;
+    font-size: 2em;
+   }
+   .col {
+    padding: 0px; 
+  }
+    p.cardcontents{
+        text-align: justify;
+        margin: 1%;
+        margin-left: 2%;
+        white-space: initial;
+      }
+      div.cardcontents{
+        text-align: justify;
+        margin: 1%;
+        margin-left: 2%;
+        white-space: initial;
+      }
+      p.dropdown{
+        font-size: 1.9rem;
+        color: #0096ff;
+        margin:1%;
+        margin-left: 7px;
+      } 
+      .rejected{
+        color: #ef5350;
+        text-align: justify;
+        white-space: initial;
+      }
+      .approved{
+        text-align: justify;
+        white-space: initial;
+        color: #66BB6A;
+      }
+
+      #startbutton{
+        background-color:green;
+        margin-left: 1%;
+        width: 10rem;
+    }
+    #endbutton{
+        background-color:red;
+        margin-left: 1%;
+        width: 10rem;
+    }
+    .datetime-text{
+      display: none;
+      }
+}

@@ -1,0 +1,276 @@
+<ion-header>
+  <ion-navbar hideBackButton text-center>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Inbox</ion-title>
+  </ion-navbar>
+  <ion-row [class.hide]="userType" >
+      <ion-col>
+        <p class="drop">Facility</p>
+      </ion-col>
+      <ion-col >
+        <ion-select *ngIf='emptyDropdown' [(ngModel)]="facilityid" disable="true" placeholder='No Records Found'
+          multiple="false" (ionChange)="updateChange()">
+        </ion-select>
+        <ion-select *ngIf='!emptyDropdown' [(ngModel)]="facilityid" placeholder='Facility' multiple="false"
+          (ionChange)="updateChange()">
+          <ion-option *ngIf='emptyDropdown' selected>No Records Found</ion-option>
+          <ion-option *ngFor="let facility of userFacilitiesJson; let i = index;" selected="{{(i==0)}}"
+            [navPush]="InboxPage" [navParams]="facility" value="{{facility.GroupId}}">{{facility.GroupName}}</ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+  <hr>
+<ion-segment [(ngModel)]="page">
+  <ion-segment-button value="0" (click)="selectedTab(0)">
+    Access Request
+  </ion-segment-button>
+  <ion-segment-button value="1" (click)="selectedTab(1)">
+    Service Request
+  </ion-segment-button>
+  <ion-segment-button value="2" (click)="selectedTab(2)">
+    Supplies
+  </ion-segment-button>
+</ion-segment>
+</ion-header>
+<ion-content overflow-scroll="false" #container >
+  <ion-slides class="forgot" #slider (ionSlideWillChange)="moveButton($event)">
+    <ion-slide>
+ 
+         
+          
+          <!--
+            grid
+          -->
+          <ion-grid>
+              <ion-row class="ion-align-items-center">
+                <ion-col>
+               
+                </ion-col>
+                <ion-col>
+                  <div>
+                    <ion-label>   
+                      <button ion-button id="pistartbutton" >
+                          <ion-datetime picker date [(ngModel)]="event.startDate" max="2099" min="1990"
+                          (ionChange)="startdatetime($event)"></ion-datetime>
+                        <ion-icon name='calendar'></ion-icon> <br>  <br><label class="btninlabel">Start Date</label>
+                        </button>
+                     </ion-label>
+                  </div>
+                  <div class="date_times">{{event.startDate | date: "MM-dd-yyyy"}}</div>
+                </ion-col>
+                <ion-col>
+                  <div>
+                    <ion-label>   
+                      <button ion-button id="piendbutton" >
+                          <ion-datetime picker date [(ngModel)]="event.endDate" (ionChange)="enddatetime($event)" max="2099" min="1990"></ion-datetime>
+                        <ion-icon name='calendar'></ion-icon> <br>  <br><label class="btninlabel">End Date &nbsp; &nbsp;</label></button>
+                    </ion-label>
+                  </div>
+                  <div class="date_timee">{{event.endDate | date: "MM-dd-yyyy"}}</div>
+                </ion-col>
+                <ion-col>
+                
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          <!--Mofified by anto to change date-picker-->
+          <div text-center><button ion-button (click)="sendFacilityRequestsButton()"  class="dateButton">Go</button></div>
+          <p class="dropdown">Reservation Request</p>
+          <ion-card-content *ngIf='!reservStatus'>No Records Found</ion-card-content>
+  <div *ngIf='reservStatus'>
+
+  
+          <ion-card *ngFor="let reservation of ReservationRequestJson" (click)='reservationRequest(reservation)' [ngSwitch]=reservation.Status>
+              <div class="cardheading">{{reservation.ResourceName}}</div>
+              <div class="cardsubheading">User : {{reservation.UserFullName}}</div>
+              <div class="cardcontainertext">
+                <span class="cardlefttext">Lab : {{reservation.LabName}}</span>
+                 <span class="cardrighttext">{{reservation.SessionType}}</span>
+                </div>
+             <div class="cardsubtext" [class.hide]="!userType" *ngIf="reservation.GroupType!='P'">Account Code : {{reservation.AccountCode}}</div>
+              <div class="cardsubtext" [class.hide]="!userType" *ngIf="reservation.GroupType=='P'">PO Number : {{reservation.AccountCode}}</div>
+              <div *ngSwitchCase="'Approved'" class="cardcontainertext">
+                <span class="cardstatus" >Status : </span>
+                <span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{reservation.Status}}
+                </span>
+              </div>
+              <div *ngSwitchCase="'Waitlisted'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{reservation.Status}}</span></div>
+              <div *ngSwitchCase="'Rejected'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusred"> <ion-icon name="close-circle" class="text"></ion-icon> {{reservation.Status}}</span></div>
+              <div *ngSwitchCase="'Pending'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusred"><ion-icon name="close-circle" class="text"></ion-icon> {{reservation.Status}}</span></div>
+              <div *ngSwitchCase="'Upcoming'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{reservation.Status}}</span></div>
+              <div *ngSwitchCase="'Elapsed'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusred"><ion-icon name="close-circle" class="text"></ion-icon> {{reservation.Status}}</span></div>
+              <div class="cardcontainertext">
+                <span class="cardlefttime"> <ion-icon name="time" class="text"></ion-icon> {{reservation.strStartTime}}</span> 
+                <span class="cardrighttime"><ion-icon name="time" class="text"></ion-icon> {{reservation.strEndTime}}</span>
+              </div>
+              </ion-card>
+            </div>
+          <br>
+          <p class="dropdown">Facility Access Request</p>
+          <ion-card-content *ngIf='!facStatus'>No Records Found</ion-card-content>
+         <div *ngIf='facStatus'>
+              <ion-card  *ngFor="let facilityAccess of userFacilitiesAccessJson; let i = index;"  (click)='actionSheetMethod(facilityAccess)' >
+              <div class="cardsubheading">{{facilityAccess.UserName}}</div>
+              <div class="cardsubtext"> Lab : {{facilityAccess.Lab}}</div>
+              <div class="cardsubtext"> Institution : {{facilityAccess.Institution}}</div>
+              <div class="cardsubtext">Date : {{facilityAccess.CreatedDate}}</div>
+              </ion-card>
+        </div>
+   
+          <br>
+          <p class="dropdown">Instrument Access Request</p>
+          <ion-card-content *ngIf='!instStatus'>No Records Found</ion-card-content>
+            <div *ngIf='instStatus'>
+              <ion-card *ngFor="let instrument of userInstrumentJson" (click)='alertRequest(instrument)'>
+              <div class="cardsubheading">{{instrument.ResourceName}}</div>
+              <div class="cardsubtext"> {{instrument.UserName}}</div>
+              <div class="cardsubtext"> {{instrument.strCreatedDate}}</div>
+              </ion-card>
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+
+         
+          <ion-grid>
+
+              <ion-row class="ion-align-items-center">
+                <ion-col>
+               
+                </ion-col>
+                <ion-col>
+                  <div>
+                    <ion-label>   
+                      <button ion-button id="pistartbutton" >
+                          <ion-datetime picker date [(ngModel)]="sample_event.startDate" max="2099" min="1990"
+                          (ionChange)="startdatetime($event, 'sample')"></ion-datetime>
+                        <ion-icon name='calendar'></ion-icon> <br>  <br><label class="btninlabel">Start Date</label>
+                        </button>
+                     </ion-label>
+                  </div>
+                  <div class="date_times">{{sample_event.startDate | date: "MM-dd-yyyy"}}</div>
+                </ion-col>
+                <ion-col>
+                  <div>
+                    <ion-label>   
+                      <button ion-button id="piendbutton" >
+                          <ion-datetime picker date [(ngModel)]="sample_event.endDate" (ionChange)="enddatetime($event, 'sample')" max="2099" min="1990"></ion-datetime>
+                        <ion-icon name='calendar'></ion-icon> <br>  <br><label class="btninlabel">End Date &nbsp; &nbsp;</label></button>
+                    </ion-label>
+                  </div>
+                  <div class="date_timee">{{sample_event.endDate  | date: "MM-dd-yyyy"}}</div>
+                </ion-col>
+                <ion-col>
+                
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          <div text-center><button ion-button (click)="sendSampleRequestsButton()"  class="dateButton">Go</button></div>
+          <p class="dropdown">Sample Submission/Service Request</p>
+          <ion-card-content *ngIf='!sampleStatus'>No Records Found</ion-card-content>
+          <div *ngIf='sampleStatus'>
+    
+            <ion-card *ngFor="let sampleAccess of sampleRequestJson; let i = index;"  [ngSwitch]=sampleAccess.WorkOrderStatus.trim() (click)="sampleDetail(sampleAccess)">
+                <div class="cardheading">{{sampleAccess.RollNumber}}</div>
+                <div class="cardsubheading">Template : {{sampleAccess.TemplateName}}</div>  
+                <div class="cardsubtext" >User : {{sampleAccess.UserFullName}}</div>
+                <div class="cardsubtext" >Lab : {{sampleAccess.LabName}}</div>    
+                <div class="cardsubtext" >PI : {{sampleAccess.PIName}}</div>  
+                <div *ngIf="sampleAccess.WorkOrderStatus.trim()!='Approval Process (Cancel)'" class="cardcontainertext">
+                    <span class="cardstatus" >Status :           
+                    </span>
+                    <span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{sampleAccess.WorkOrderStatus}}
+                    </span>
+                  </div>
+                <div *ngIf="sampleAccess.WorkOrderStatus.trim()=='Approval Process (Cancel)'" class="cardcontainertext">
+                  <span class="cardstatus" >Status : </span>
+                  <span class="cardstatusred"> <ion-icon name="close-circle" class="text"></ion-icon> {{sampleAccess.WorkOrderStatus}}
+                  </span>
+                </div>
+                <div class="cardsubtext" >Date : {{sampleAccess.strCreatedDate}}</div> 
+                </ion-card>
+          </div>
+          
+        </ion-slide>
+
+        <ion-slide>
+          
+ 
+ 
+  <ion-grid>
+
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+       
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-label>   
+              <button ion-button id="pistartbutton" >
+                  <ion-datetime picker date [(ngModel)]="supplies_event.startDate" max="2099" min="1990"
+                  (ionChange)="startdatetime($event, 'sample')"></ion-datetime>
+                <ion-icon name='calendar'></ion-icon> <br>  <br><label class="btninlabel">Start Date</label>
+                </button>
+             </ion-label>
+          </div>
+          <div class="date_times">{{supplies_event.startDate | date: "MM-dd-yyyy"}}</div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-label>   
+              <button ion-button id="piendbutton" >
+                  <ion-datetime picker date [(ngModel)]="supplies_event.endDate" (ionChange)="enddatetime($event, 'sample')" max="2099" min="1990"></ion-datetime>
+  
+                <ion-icon name='calendar'></ion-icon> <br>  <br><label class="btninlabel">End Date &nbsp; &nbsp;</label></button>
+         
+            </ion-label>
+          </div>
+          <div class="date_timee">{{supplies_event.endDate   | date: "MM-dd-yyyy"}}</div>
+        </ion-col>
+        <ion-col>
+        
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  <div text-center><button ion-button (click)="suppliesRequest()"  class="dateButton">Go</button></div>
+  <ion-card-content *ngIf='!suppliesValue'>No Records Found</ion-card-content>
+  <div *ngIf='suppliesValue'>
+    <ion-card *ngFor="let supplies of suppliesJson; let i = index;"   [ngSwitch]=supplies.Status   (click)="suppliesDetail(supplies)">
+        <div class="cardheading">Order Number : {{supplies.OrderNumber}}</div>
+        <div class="cardsubheading">Lab Name : {{supplies.GroupName}}</div>  
+        <div class="cardsubtext" >User : {{supplies.UserFullName}}</div>
+        <div class="cardsubtext" >Date : {{supplies.CreatedDate}}</div>      
+        <div class="cardsubtext"  *ngIf="!supplies.TotalAmount">Total Amount: 0.00 {{supplies.Currencycode}}</div>
+        <div class="cardsubtext"  *ngIf="supplies.TotalAmount">Total Amount: {{supplies.TotalAmount | number:'1.2-2'}}  {{supplies.Currencycode}}</div>
+        <div *ngSwitchCase="'Created'" class="cardcontainertext">
+          <span class="cardstatus" > Status : </span>
+          <span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{supplies.Status}}
+          </span>
+        </div>
+        <div *ngSwitchCase="'Approved'" class="cardcontainertext">
+          <span class="cardstatus" > Status :           
+          </span>
+          <span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{supplies.Status}}
+          </span>
+        </div>
+        <div *ngSwitchCase="'Completed'" class="cardcontainertext">
+            <span class="cardstatus" > Status :           
+            </span>
+            <span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{supplies.Status}}
+            </span>
+          </div>
+        <div *ngSwitchCase="'Cancelled'" class="cardcontainertext">
+          <span class="cardstatus" > Status : </span>
+          <span class="cardstatusred"> <ion-icon name="close-circle" class="text"></ion-icon> {{supplies.Status}}
+          </span>
+        </div>
+        </ion-card>
+  </div>
+          </ion-slide>
+      </ion-slides>
+  
+
+  
+</ion-content>

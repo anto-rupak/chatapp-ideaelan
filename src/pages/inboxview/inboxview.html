@@ -1,0 +1,52 @@
+  <ion-header hideBackButton="true">
+
+    <ion-navbar>
+      <button ion-button  icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+  <ion-title ion-align='center'>View Invoice</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+<ion-content padding>
+  
+        <ion-row><p class="cardcontents"> <b>Invoice Number</b> <br />{{InvoiceNumber}}</p></ion-row><hr>
+        <ion-row>
+          <p *ngIf='TotalAmount' class="cardcontents"> <b>Amount</b> <br /> {{TotalAmount| number:'1.2-2'}} USD</p>
+          <p *ngIf='!TotalAmount' class="cardcontents"> <b>Amount</b> <br /> 0.00 USD</p>
+        </ion-row><hr>
+        <ion-row><p class="cardcontents"> <b>Discount</b> <br /> 0.00 %</p></ion-row><hr>
+        <ion-row><p class="cardcontents"> <b>Tax</b> <br /> 0.00 %</p></ion-row><hr>
+        <ion-row><p *ngIf='TotalAmount' class="cardcontents"> <b>Total Amount</b> <br /> {{TotalAmount | number:'1.2-2'}} USD</p>
+          <p *ngIf='!TotalAmount' class="cardcontents"> <b>Total Amount</b> <br /> 0.00 USD</p>
+        </ion-row>
+    
+     <hr>
+<p style=" font-size: 18px; color:#1976D2;">Invoice Status</p>
+<ion-row><p class="cardcontents"><b>Status:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{Status}}</p></ion-row>
+<ion-row><p class="cardcontents" *ngIf='!checkStatus'> Note : <ion-item id="rounded"> <ion-input type="text" value=""></ion-input></ion-item></p></ion-row>
+<div text-center><button ion-button (click)='invoiceRequest()'  *ngIf='!checkStatus'>Approve Invoice</button></div>
+
+     <hr>
+<p style=" font-size: 18px; color:#1976D2;">Invoice Transactions</p>  
+   
+        <ion-list *ngFor="let invoiceDetails of userInvoiceDetailsJson; let i = index;"  style=" border: 0.5px solid #000000;">
+          <ion-card-content><ion-list >
+            <p class="cardcontents"> <b>Status:</b> {{invoiceDetails.Status}}</p>
+            <p class="cardcontents"> <b>User:</b> {{invoiceDetails.UserName}}</p>
+            <p class="cardcontents"> <b>Lab:</b> {{invoiceDetails.LabName}}</p>
+            <p class="cardcontents"> <b>Account Code:</b> {{invoiceDetails.AccountCode}}</p>
+            <p class="cardcontents"> <b>Service Type:</b> {{invoiceDetails.Type}}</p>
+            <p class="cardcontents"> <b>Name:</b> {{invoiceDetails.Name}}</p>
+            <p class="cardcontents"> <b>Date:</b> {{invoiceDetails.TransactionDate | date: "MM-dd-yyyy "}}</p>
+            <p class="cardcontents"> <b>Description:</b> {{invoiceDetails.Other}}</p> 
+            <p class="cardcontents"> <b>Quantity:</b> {{invoiceDetails.UsageHours}}</p>
+            <p class="cardcontents"> <b>Rate:</b> {{invoiceDetails.Unit}}</p>
+            <p *ngIf='!invoiceDetails.Fee' class="cardcontents"> <b>Total:</b> 0.00 {{invoiceDetails.CurrencyCode}}</p>
+            <p *ngIf='invoiceDetails.Fee' class="cardcontents"> <b>Total:</b> {{invoiceDetails.Fee | number:'1.2-2'}} {{invoiceDetails.CurrencyCode}}</p>
+          </ion-list>
+        </ion-card-content>
+</ion-list>
+ 
+</ion-content>

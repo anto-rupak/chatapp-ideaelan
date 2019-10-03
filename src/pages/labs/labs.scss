@@ -1,0 +1,34 @@
+//Created by Anto Rupak
+page-labs {
+    .list-group-item:last-child {
+        margin-bottom: -30px;
+        border-bottom-right-radius: .25rem; 
+       border-bottom-left-radius: .25rem; 
+    }
+    .list {
+        margin: 4px 0 1px;
+    }
+    .button-clear-md {
+        border-color: transparent;
+        /* color: #0096ff; */
+        background-color: transparent;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        opacity: 1;
+    }
+    .button {
+        background-color: none;
+    }
+    
+    .searchbar .searchbar-clear-icon {
+        right: 0;
+        top: 0;
+        background-position: center;
+        position: absolute;
+        width: 30px;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-color: white;
+        background-size: 18px;
+    }
+}

@@ -1,0 +1,60 @@
+page-allreservation {
+  ion-app.ios {
+    font-size: 1.8rem;
+}
+
+
+ 
+  .select {
+    margin-right: 5px;
+    width: 50%;
+    padding-left: 4px;
+    margin-top: 6px;
+    position: fixed;
+}
+
+.col {
+  padding: 0px; 
+}
+p.dropdown{
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: #1976D2;
+  display: block;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  margin-left: 10px;
+  margin-right: 0; 
+  text-align-last: start;
+}
+ion-select {
+  
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1px 0px 1px 1px;
+  align-items: center;
+  height: 35px;
+  text-align: left;
+  max-width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}         
+ ion-option { direction: rtl;
+  }
+ 
+.datetime-text{
+display: none;
+}
+        .hide {
+            display: none;
+          }
+          ion-icon{
+            vertical-align: middle;
+            font-size: 2em;
+           }
+
+
+
+   
+    }
+    
+

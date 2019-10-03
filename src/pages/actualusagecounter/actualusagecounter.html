@@ -1,0 +1,35 @@
+<!--Created by Anto Rupak-->
+<script src="lib/easytimer/dist/easytimer.min.js"></script>
+<script>
+  var timerInstance = new easytimer.Timer();
+</script>
+
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-title>Actual Usage</ion-title>
+</ion-navbar>
+</ion-header>
+<ion-content>
+   
+  <ion-item><ion-row><ion-col col-4><b>User:</b></ion-col> <ion-col col-5>{{resUserName}}</ion-col></ion-row></ion-item>
+  <ion-item><ion-row><ion-col col-4><b>Lab:</b></ion-col><ion-col col-5>{{labName}}</ion-col></ion-row> </ion-item>
+  <ion-item><ion-row><ion-col col-4><b>Project:</b></ion-col><ion-col col-5>{{projectName}}</ion-col></ion-row> </ion-item>
+  <ion-item><ion-row><ion-col col-4><b>Account Code:</b></ion-col><ion-col col-5>{{accName}}</ion-col></ion-row> </ion-item>
+  <ion-item><ion-row><ion-col col-4><b>Session Type:</b></ion-col><ion-col col-5>{{sessionName}}</ion-col></ion-row> </ion-item>
+  <ion-item><ion-row><ion-col col-4><b>Admin:</b></ion-col><ion-col col-5>{{adminName}}</ion-col></ion-row> </ion-item>
+  <ion-item><ion-row><ion-col col-4><b>Tag Name:</b></ion-col><ion-col col-5>{{tagValue}}</ion-col></ion-row> </ion-item>
+  <ion-item><ion-row><ion-col col-4><b>Start Time:</b></ion-col><ion-col col-5> {{ViewDateValue}}</ion-col></ion-row></ion-item>
+  <ion-item>
+    <div id="chronoExample">
+      <div class="timer">00:00:00</div>
+    </div>
+  </ion-item>
+  <ion-item>
+
+    <button ion-button  block class="stopButton" (click)='conformUsage()'>
+      Stop
+    </button>
+  </ion-item>
+
+
+</ion-content>

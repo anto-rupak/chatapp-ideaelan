@@ -1,0 +1,248 @@
+page-inbox {
+  ion-icon{
+    vertical-align: middle;
+    font-size: 2em;
+   }
+  .date_times {
+    font-size: 1.4rem;
+  }
+  .date_timee {
+    font-size: 1.4rem;
+  }
+  .toolbar-content{
+    z-index:10 !important;
+    bottom:0 !important;
+  }
+  p.drop{
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000000;
+  }
+  p { 
+    display: block;
+    margin-top: 0.8em;
+    margin-bottom: 0.3em;
+    margin-left: 10px;
+    margin-right: 0; }
+  .select {	
+   
+   
+    position: fixed;
+    width: 50%;
+}
+.slide-zoom {
+   text-align: inherit; 
+}
+.swiper-slide {
+  text-align: inherit;
+}
+  .colalign{
+    margin-right: 4px
+  }
+  .rowalign{
+    align-items: baseline;height: 3em;
+
+  }
+  .date_time{
+    margin-top:50%;color: #000000
+  }
+  .disp{
+    border: 1px solid #000000;
+  }
+  .hide {
+    display: none;
+  }
+  ::-webkit-input-placeholder {
+    font-size: 20px !important;
+    }
+    
+    :-moz-placeholder {  
+    font-size: 20px !important;
+    }
+    
+    /*--for IE10 support--*/
+    :-ms-input-placeholder {
+    font-size: 20px !important;
+    }
+  .secondary{
+    background:#4CAF50;
+  }
+.danger{
+  background: #f44336;
+}
+  .one {
+    color: red;
+  }
+  .two {
+    color: green;
+  }
+  .example-trigger {
+    display: inline-block;
+  }
+  .row {
+    margin-right: 0px; 
+    margin-left: 0px; 
+}
+.button-clear {
+ border-color: transparent;
+ color:transparent;
+ background-color: transparent;
+}
+  ion-slides.forgot{
+    .slide-zoom {
+        height: 100%;
+        overflow-x: auto;
+        background: white;
+        overflow-y: scroll;
+        display: block;
+        
+     }
+}
+     .segment .segment-button {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      width: 0;
+      height: 4.2rem;
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+      border-bottom-color: rgba(0, 0, 0, 0.1);
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 4rem;
+      text-transform: uppercase;
+      color: white;
+      background-color: #0096ff;
+      opacity: 0.7;
+      -webkit-transition: 100ms all linear;
+      transition: 100ms all linear;
+      padding: 0 6px;
+  }
+
+.segment .segment-button.segment-activated {
+  border-bottom-color: orange;
+} 
+
+.segment-ios .segment-button:hover:not(.segment-activated) {
+  background-color: #0096ff;
+}
+
+.segment-ios .segment-button:active:not(.segment-activated) {
+  background-color:#0096ff
+}
+          ion-option { direction: rtl;
+           }
+           p.dropdown{
+            font-size: 1.8rem;
+            font-weight: normal;
+            color: #1976D2;
+          }
+  
+  .no-padding {
+    padding: 0px ;
+    padding-top: 0px;
+  }
+  ion-button{
+    margin-left: auto;
+    margin-right: auto;
+    
+  } 
+  p { 
+  display: block;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  margin-left: 10px;
+  margin-right: 0; }
+  
+
+  
+    p { 
+      display: block;
+      margin-top: 0.3em;
+      margin-bottom: 0.3em;
+      margin-left: 10px;
+      margin-right: 15px; }
+      
+      .bor {
+        margin-top: 15px;
+        margin-bottom: -5px;
+        border-bottom: 0.5rem;
+        margin-left: -5%;
+        margin-right: -5%;
+     
+        }
+
+        
+      
+      p.cardcontents{
+        text-align: justify;
+        overflow: initial;
+        white-space: initial;
+        margin: 1%;
+        margin-left: 2%;
+        white-space: initial;
+      }
+      #endbutton{
+        background-color: red;
+        width: 10rem;
+    }
+    #startbutton{
+        background-color: green;
+        width: 10rem;
+    }
+    .rejected{
+      color: red;
+    }
+    .approved{
+      color: green;
+  }
+  .pending{
+    color: red;
+  }
+  div.cardcontents{
+    text-align: justify;
+    margin: 1%;
+    margin-left: 2%;
+    white-space: initial;
+  }
+  .list {
+    margin: -1px 0 -10px;
+}
+.datetime-text{
+  display: none;
+  }
+  
+  .col {
+    padding: 0px; 
+    position: relative;
+    width: 100%;
+    margin: 0;
+    min-height: 1px;
+    -webkit-flex-basis: 0;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+ion-select {
+
+  height: 35px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: left;
+  border: 1px solid rgb(0, 0, 0);
+  align-items: center;
+  max-width: 100%;
+ 
+}
+ion-icon{
+  vertical-align: middle;
+  font-size: 2em;
+ }
+
+}

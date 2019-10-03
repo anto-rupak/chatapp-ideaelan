@@ -1,0 +1,54 @@
+
+<ion-header>
+  <ion-navbar  hideBackButton="{{disa}}">
+    <ion-title>Sample Submission</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row><ion-col col-5><b>{{r_type}}</b></ion-col><ion-col col-6>{{s_id}}</ion-col></ion-row><hr>
+  <ion-row><ion-col col-5><b>{{accountType}}</b></ion-col><ion-col col-6>{{s_account}}</ion-col></ion-row><hr>
+  <ion-row><ion-col col-5><b>User</b></ion-col><ion-col col-6>{{s_user}}</ion-col></ion-row><hr>
+  <ion-row><ion-col col-5><b>Template Name</b></ion-col><ion-col col-6>{{s_tname}}</ion-col></ion-row><hr>
+  <ion-row><ion-col col-5><b>Lab Name</b></ion-col><ion-col col-6>{{s_lab}}</ion-col></ion-row><hr>
+  <ion-row [class.hide]="projectExist"><ion-col col-5><b>Project Name</b></ion-col><ion-col col-6>{{p_name}}</ion-col></ion-row><hr>
+  <div [class.hide]="userType">
+    <ion-row ><ion-col col-5><b>Start Time </b></ion-col><ion-col col-6>{{startTime}}</ion-col></ion-row><hr>
+    <ion-row style="align-items: center"><ion-col col-5><b>Milestone </b></ion-col>
+      <ion-col col-6>
+        <ion-select [(ngModel)]="milestonesData" placeholder='Select Milestone' multiple="false" (ionChange)="updateChange()" disabled="{{disa}}" >
+        <ion-option *ngFor="let milestone of milestoneJson" value="{{milestone.ConditionId}}" >{{milestone.ConditionDescription}}</ion-option>
+           </ion-select>
+      </ion-col></ion-row><hr>
+      
+  <b >Comments</b>
+  <ion-row ><ion-col><ion-textarea [(ngModel)]="description"></ion-textarea></ion-col></ion-row><hr>  
+  </div>
+ <div text-center><button ion-button (click)='sampleDropped()'  [class.hide]="droppedButton" >Sample Dropped</button></div>
+
+ <ion-row [class.hide]="!showTimer"><ion-col col-3>  
+   <button [class.hide]="recording" ion-button icon-only (click)='recordButton()'>
+    <ion-icon name="mic"></ion-icon>
+  </button> 
+  <button [class.hide]="!recording" ion-button icon-only style="background-color: red;" (click)='stopRecord()'>
+      <ion-icon name="mic"></ion-icon>
+    </button>   <div id="chronoExample1">
+      <div class="timer1">{{timerValue}}</div>
+    </div> </ion-col>
+    <ion-col col-9>
+    <div>
+        <div id="chronoExample">
+          <div class="timer">00:00:00</div>
+        </div>
+        <button [class.hide]="!buttonToogle" ion-button style="background-color: green;" block class="startButton" (click)='startButtonRequest()'>
+          Start
+        </button>
+        <button [class.hide]="buttonToogle" [disabled]="recording" ion-button style="background-color: red;" block class="stopButton" (click)='endTimer()'>
+          Stop & End
+        </button>
+      </div>
+      
+ </ion-col></ion-row>
+ 
+</ion-content>

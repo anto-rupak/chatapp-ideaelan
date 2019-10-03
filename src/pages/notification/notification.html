@@ -1,0 +1,39 @@
+<!--
+  Generated template for the NotificationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar hideBackButton text-center>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Notifications</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <p   style="font-size: 2rem" class="dropdown">User</p>
+    <ion-list *ngFor="let notification of notificationJson" [ngSwitch]=notification.NotificationType >
+  
+  
+          <ion-row  class="bottomRow" *ngSwitchCase="'U'">
+            <ion-item no-lines>
+            <ion-label ><p class="don">{{notification.NotificationText}}</p></ion-label>
+              <ion-toggle  class="handle" [(ngModel)]="notification.UserIsActive" (ionChange)="updateNotificationApp(notification.UserNotificationId,notification.NotificationId,notification.NotificationValue,notification.UserIsActive)"></ion-toggle>
+            </ion-item></ion-row>
+    </ion-list>
+   
+   
+        <ion-list  class="list-md" *ngIf='!userType'>
+            <p  style="font-size: 2rem" class="dropdown">Facility Admin</p>
+            <ion-row *ngFor="let notification of notificationJson" [ngSwitch]=notification.NotificationType>
+              <ion-item no-lines *ngSwitchCase="'A'">
+                <ion-label> <p class="don">{{notification.NotificationText}}</p> </ion-label>
+                   <ion-toggle [(ngModel)]="notification.UserIsActive" (ionChange)="updateNotificationApp(notification.UserNotificationId,notification.NotificationId,notification.NotificationValue,notification.UserIsActive)"></ion-toggle>
+                  </ion-item> 
+                </ion-row> 
+              </ion-list>
+   
+  </ion-content>>

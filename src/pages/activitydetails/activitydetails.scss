@@ -1,0 +1,141 @@
+page-activitydetails {
+  p { 
+    display: block;
+    margin-top: 0.8em;
+    margin-bottom: 0.3em;
+    margin-left: 10px;
+    margin-right: 0; }
+  .list{
+    margin: -1px -8px 4px
+  }
+  .disp{
+    border: 1px solid #000000; 
+  
+  }
+  .select {
+    padding: 7px 5px 5px 6px;
+    height: 35px;
+    margin-right: 13px;
+    margin-top: 4px;
+}
+  canvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 800px;
+}
+  p.heading{
+    text-align: justify;
+    font-size:2rem;
+    color: #1976D2;
+    text-decoration: bold;
+    
+  
+      
+  }
+  p.cardslayout{
+   
+    color: #1976D2;
+    border-bottom: 0.5rem;
+    text-align: justify;
+    font-size:2rem;
+    margin-left: .55em;
+    margin-right: .5em;
+    margin-top: .3em;
+    margin-bottom: .3em;
+       
+    
+  }
+
+  .rejected{
+    color: #ef5350;
+  }
+  .approved{
+    color: #66BB6A;
+  }
+  ion-select { 
+            text-align: left;
+            max-width: 100%;
+            font-size: 1.2rem;
+            border: 1px solid rgb(0, 0, 0);
+        }
+
+
+  
+         
+   .block{
+    margin-top: 1%;
+    border: 1px solid rgb(0, 0, 0);
+    
+}
+.intro{
+    
+    background-color:#1976D2;
+    padding: 1%;
+    align-content: center;
+    align-items: center;
+}
+h3{
+    color:white;
+    background-color: #1976D2;
+    
+}
+.gap{
+    margin: 2%;
+}
+.gapp{
+    
+    background-color: #1976D2;
+    color:white;
+}
+p.cardcontents{
+  text-align: justify;
+  margin: 1%;
+  margin-left: 2%;
+  white-space: initial;
+}
+div.cardcontents{
+  text-align: justify;
+  margin: 1%;
+  margin-left: 2%;
+  white-space: initial;
+}
+  p.title{
+    text-align: justify;
+    font-size:1.5rem;
+    color: rgb(0, 0, 0);
+    text-decoration: bold;
+    font-weight: bold;
+  }
+  ion-card {
+    position: relative;
+    text-align: left;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+  }
+
+  table {
+    padding: 1%;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+th {
+    border: 1px solid #000000;
+    text-align: left;
+    color: white;
+    background-color: #1976D2;
+    padding: 1%;
+    margin: 1%;
+}
+
+td{
+padding: 1%;
+margin: 1%;
+}
+.hide {
+    display: none;
+  }
+}

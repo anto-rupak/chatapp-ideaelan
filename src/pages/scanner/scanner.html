@@ -1,0 +1,33 @@
+<!--
+  Generated template for the ScannerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Scanner</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  &nbsp;
+ 
+  <button ion-button full (click)='startScanner()'>Scan</button>
+
+  <div *ngIf='status'>
+  <ion-card >
+    <ion-card-content *ngFor="let barcode of barcodeSplittedJson">
+    <b>{{barcode.FieldName}} &nbsp; &nbsp; &nbsp; {{barcode.FieldValue}}</b>
+     </ion-card-content>
+   </ion-card>
+  </div>
+</ion-content>

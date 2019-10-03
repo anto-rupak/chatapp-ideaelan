@@ -1,0 +1,53 @@
+<!--Created by Anto Rupak-->
+<ion-header>
+  <ion-navbar hideBackButton text-center>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Facilities</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)" [(ngModel)]="searchText"></ion-searchbar>
+  <!--Refresher added by Anto Rupak-->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card *ngFor="let facility of userFacilitiesJson" [ngSwitch]=facility.Status>
+
+    
+      <ion-card-content>
+          <ion-row>
+              <ion-col col-7>
+                  <h2>{{facility.GroupName}}</h2>
+                 
+                </ion-col>
+               
+                  <p *ngSwitchCase="'Request Access'">
+                    <button ion-button (click)='actionSheetMethod(facility)' outline item-right style="    background-color: white;"> Request Access &nbsp;</button>
+                  </p>
+                  <p *ngSwitchCase="'Waiting for approval'">
+               
+                    <ion-badge item-end style="background-color:#fec547;">Waiting for Approval</ion-badge>
+                  </p>
+                  <p *ngSwitchCase="'Approved'">
+                    <ion-badge item-end style="background-color:#3AB052;margin-left: 35px;">{{facility.Status}}</ion-badge>
+                  </p>
+                  <p *ngSwitchCase="'Rejected'">
+                      <ion-badge item-end style="background-color:#F35C49; margin-left: 35px;">{{facility.Status}}</ion-badge>
+                  </p>
+           
+          </ion-row>
+          <ion-row>
+            <ion-col>
+                {{facility.Information}}
+            </ion-col>
+             
+          </ion-row>
+      </ion-card-content>
+    
+    </ion-card>
+</ion-content>

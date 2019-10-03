@@ -1,0 +1,115 @@
+
+<ion-header>
+  <ion-navbar hideBackButton text-center>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> My Supplies</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+  <!-- 
+    <ion-row [class.hide]="userType" class="rowalign" >
+        <ion-col >
+           <p class="dropdown">Facility</p>
+      </ion-col>
+      <ion-col class="colalign">
+         <ion-select [(ngModel)]="facilityId" placeholder='Facility' multiple="false" (ionChange)="updateChange()"  [disabled]="selectOption">
+            <ion-option *ngIf="emptyDropdown" selected>No Records Found</ion-option>  
+             <ion-option *ngFor="let facility of userFacilitiesJson; let i = index;" selected="{{(i==0)}}" value="{{facility.GroupId}}">{{facility.GroupName}}</ion-option>
+             </ion-select>
+       </ion-col>  
+    </ion-row>
+    
+    <hr [class.hide]="userType">
+  -->
+
+
+  <!--   original   
+    <div>
+      <ion-item>
+        <ion-datetime picker date [(ngModel)]="startDate" max="2099" min="1990" ></ion-datetime>
+        <ion-label> <button ion-button id="startbutton">Start Date</button> <span
+            class="date_time">{{startDate | date: "MM-dd-yyyy"}}</span></ion-label>
+      </ion-item>
+    </div>
+    <div>
+      <ion-item>
+        <ion-datetime picker date [(ngModel)]="endDate"  max="2099" min="1990"></ion-datetime>
+        <ion-label> <button ion-button id="endbutton">End Date</button>
+          <span class="date_time">{{endDate | date: "MM-dd-yyyy"}}</span></ion-label>
+      </ion-item>
+    </div>
+      <div text-center><button ion-button (click)="sendSuppliesRequest()">Go</button></div>       
+    <ion-card-content class="cardalign" *ngIf='!SupStatus'>No Records Found</ion-card-content>
+
+  -->
+    <ion-grid>
+
+        <ion-row class="ion-align-items-center">
+          <ion-col>
+         
+          </ion-col>
+          <ion-col>
+            <div>
+              <ion-label>   
+                <button ion-button id="pistartbutton" >
+                    <ion-datetime picker date [(ngModel)]="startDate" max="2099" min="1990" (ionChange)="startdatetime($event)"></ion-datetime>
+                  <ion-icon name='calendar'></ion-icon> <br>  <br><label class="btninlabel">Start Date</label>
+                  </button>
+               </ion-label>
+            </div>
+            <div class="date_times">{{startDate| date: "MM-dd-yyyy"}}</div>
+          </ion-col>
+          <ion-col>
+            <div>
+              <ion-label>   
+                <button ion-button id="piendbutton" >
+                    <ion-datetime picker date [(ngModel)]="endDate" (ionChange)="enddatetime($event)" max="2099" min="1990"></ion-datetime>
+    
+                  <ion-icon name='calendar'></ion-icon> <br>  <br><label class="btninlabel">End Date &nbsp; &nbsp;</label></button>
+           
+              </ion-label>
+            </div>
+            <div class="date_timee">{{endDate   | date: "MM-dd-yyyy"}}</div>
+          </ion-col>
+          <ion-col>
+          
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+        <div text-center ><button ion-button (click)="sendSuppliesRequest()" class="dateButton">Go</button></div>  
+        <ion-card-content class="cardalign" *ngIf='!SupStatus'>No Records Found</ion-card-content>
+          
+     <!-- changes made 
+    <ion-card-content class="cardalign" *ngIf='SupStatus'>
+
+    <ion-list text-wrap *ngFor="let Supplies of userSuppliesJson; let i = index;" (click)="detailpage(Supplies.OrderId)" class="disp">
+      --> 
+      <div *ngIf='SupStatus' >
+      <ion-card *ngFor="let Supplies of userSuppliesJson; let i = index;" [ngSwitch]=Supplies.Status (click)="detailpage(Supplies)">
+      <div  class="cardheading"><b>Order Number : {{Supplies.OrderNumber}}</b></div>
+          <div class="cardsubheading">Lab Name : {{Supplies.GroupName}}</div>
+           <div class="cardsubtext">User : {{Supplies.UserFullName}}</div>
+           <div class="cardsubtext">Date : {{Supplies.CreatedDate |  date: "MM-dd-yyyy"}}</div>
+          <div class="cardsubtext" *ngIf="!Supplies.TotalAmount" >Total Amount : 0.00 {{Supplies.Currencycode}}</div>
+          <div class="cardsubtext" *ngIf="Supplies.TotalAmount" >Total Amount : {{Supplies.TotalAmount | number:'1.2-2'}} {{Supplies.Currencycode}}</div>
+          <div *ngSwitchCase="'Approved'" class="cardcontainertext">
+            <span class="cardstatus" >Status : </span>
+            <span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{Supplies.Status}}
+            </span>
+          </div>
+          <div *ngSwitchCase="'Created'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{Supplies.Status}}</span></div>
+          <div *ngSwitchCase="'Completed'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusgreen"><ion-icon name="checkmark-circle" class="text"></ion-icon> {{Supplies.Status}}</span></div>
+          <div *ngSwitchCase="'Cancelled'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusred"> <ion-icon name="close-circle" class="text"></ion-icon> {{Supplies.Status}}</span></div>
+          <div *ngSwitchCase="'Pending'" class="cardcontainertext"><span class="cardstatus" >Status : </span><span class="cardstatusred"><ion-icon name="close-circle" class="text"></ion-icon> {{Supplies.Status}}</span></div>
+        
+         
+      </ion-card>
+      </div>
+      <!--
+      </ion-list>
+    </ion-card-content>
+    -->
+
+</ion-content>

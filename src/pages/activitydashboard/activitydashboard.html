@@ -1,0 +1,109 @@
+
+<ion-header>
+  <ion-navbar hideBackButton>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Activity Dashboard</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content  overflow-scroll="false" >
+  <ion-row [class.hide]="userType" >
+    <ion-col>
+       <p class="dropdown">Facility</p>
+  </ion-col>
+  <ion-col class="dropcol">
+     <ion-select [(ngModel)]="providerValue" placeholder=' Select Facility' multiple="false" (ionChange)="updateChange()" >
+        <ion-option *ngIf='emptyString' disabled selected value="null">No Records Found</ion-option>   
+      <ion-option *ngFor="let facility of userFacilitiesJson; let i = index;" selected="{{(i==0).toString()}}" value="{{facility.GroupId}}" >{{facility.GroupName}}</ion-option>
+         </ion-select>
+   </ion-col>
+  
+</ion-row>
+<hr>
+
+<ion-card class="facility" (click)="activityDetailsPage('Facility')">
+           
+  
+<p class="cardp">Facility Access Requests</p>
+
+<table>
+  <tr>
+    <th>This Week</th>
+    <th>Today</th>
+  </tr>
+  <tr>
+    <td><b>{{facWeek}}</b></td>
+    <td><b>{{facToday}}</b></td>
+  </tr>
+  </table>
+</ion-card>
+<ion-card class="instrument" (click)="activityDetailsPage('Instruments')">
+              
+  
+  <p class="cardp">Instrument Access Requests</p>
+  
+  <table>
+    <tr>
+      <th>This Week</th>
+      <th>Today</th>
+    </tr>
+    <tr>
+      <td><b>{{insToday}}</b></td>
+      <td><b>{{insWeek}}</b></td>
+    </tr>
+    </table>
+  </ion-card>
+  <ion-card class="reservation" (click)="activityDetailsPage('Reservation')">
+              
+  
+    <p class="cardp">Reservations</p>
+    
+    <table>
+      <tr>
+        <th>This Week</th>
+        <th>Today</th>
+      </tr>
+      <tr>
+        <td><b>{{resToday}}</b></td>
+        <td><b>{{resWeek}}</b></td>
+      </tr>
+      </table>
+    </ion-card>
+    <ion-card class="sample" (click)="activityDetailsPage('Sample')">
+              
+  
+      <p class="cardp">Sample Submission Requests</p>
+      
+      <table>
+        <tr>
+          <th>This Week</th>
+          <th>Today</th>
+        </tr>
+        <tr>
+          <td><b>{{samToday}}</b></td>
+          <td><b>{{samWeek}}</b></td>
+        </tr>
+        </table>
+      </ion-card>
+      <ion-card class="project">
+              
+  
+        <p class="cardp">Projects</p>
+        
+        <table >
+          <tr>
+            <th>This Week</th>
+            <th>Today</th>
+          </tr>
+          <tr>
+            <td><b>{{proWeek}}</b></td>
+            <td><b>{{proToday}}</b></td>
+          </tr>
+          </table>
+        </ion-card>
+</ion-content>

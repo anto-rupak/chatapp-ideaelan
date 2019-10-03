@@ -1,0 +1,121 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--Created by Anto Rupak-->
+
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-title>Registration</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--<ion-content>
+  <div class="container">
+   
+    <div class="input-group input-group-lg" style="margin-top: 1em">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">
+          <ion-icon name="person"></ion-icon>
+        </span>
+      </div>
+      <input type="text" class="input-with-icon" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+        placeholder="First Name*" [(ngModel)]="fname">
+    </div>
+    <div class="input-group input-group-lg" style="margin-top: 1em">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">
+          <ion-icon name="person"></ion-icon>
+        </span>
+      </div>
+      <input type="text" class="input-with-icon" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+        placeholder="Last Name*" [(ngModel)]="lname">
+    </div>
+    <div class="input-group input-group-lg" style="margin-top: 1em">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">
+          <ion-icon name="mail"></ion-icon>
+        </span>
+      </div>
+      <input type="text" class="input-with-icon" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+        placeholder="Email ID*" [(ngModel)]="email">
+    </div>
+    <div class="input-group input-group-lg" style="margin-top: 1em">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">
+          <ion-icon name="lock"></ion-icon>
+        </span>
+      </div>
+      <input type="password" class="input-with-icon" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-lg" placeholder="Password*" [(ngModel)]="password">
+      <p style="font-weight: normal; font-size: 12px;"> Password must contain:8-10 characters,1 Uppercase letter,1
+        Lowecase letter,1 number,1 Special characters(such as !,$,@,#,% etc)</p>
+    </div>
+
+ 
+    <div class="input-group input-group-lg" style="margin-top: 1em">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">
+          <ion-icon name="lock"></ion-icon>
+        </span>
+      </div>
+      <input type="password" class="input-with-icon" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-lg" placeholder="Confirm Password*" [(ngModel)]="cpassword">
+    </div>
+    <ion-row center>
+      <ion-col text-center>
+        <button ion-button (click)="registerUser()">Register</button><br />
+        Already have an account?<span style="text-decoration:underline; color:#0096ff" (click)="signIn()"> Sign in
+          now!</span>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>-->
+
+<ion-content padding>
+  <div id="over">
+    <img src="assets/imgs/splash.png" alt="couldn't load">
+  </div>
+  <div class="input-icon-wrap" style="margin-top: 1em">
+    <span class="input-icon">
+      <ion-icon name="contact"></ion-icon>
+    </span>
+    <input type="text" class="input-with-icon" placeholder="First Name*" [(ngModel)]="fname">
+  </div>
+  <div class="input-icon-wrap" style="margin-top: 1em">
+    <span class="input-icon">
+      <ion-icon name="contact"></ion-icon>
+    </span>
+    <input type="text" class="input-with-icon"  placeholder="Last Name*" [(ngModel)]="lname">
+  </div>
+  <div class="input-icon-wrap" style="margin-top: 1em">
+    <span class="input-icon">
+      <ion-icon name="mail"></ion-icon>
+    </span>
+    <input type="email" class="input-with-icon" placeholder="Email ID*" [(ngModel)]="email">
+  </div>
+  <div class="input-icon-wrap" style="margin-top: 1em">
+    <span class="input-icon">
+      <ion-icon name="lock"></ion-icon>
+    </span>
+    <input type="password" class="input-with-icon"  placeholder="Password*" [(ngModel)]="password">
+  </div>
+  <p style="font-weight: normal; font-size: 12px;"> Password must contain:8-10 characters,1 Uppercase letter,1
+    Lowecase letter,1 number,1 Special characters(such as !,$,@,#,% etc)</p>
+  <div class="input-icon-wrap" style="margin-top: 1em">
+    <span class="input-icon">
+      <ion-icon name="lock"></ion-icon>
+    </span>
+    <input type="password" class="input-with-icon" placeholder="Confirm Password*" [(ngModel)]="cpassword">
+  </div>
+  <ion-row center>
+    <ion-col text-center>
+      <button ion-button (click)="registerUser()">Register</button><br />
+      Already have an account?<span style="text-decoration:underline; color:#0096ff" (click)="signIn()"> Sign in
+        now!</span>
+    </ion-col>
+  </ion-row>
+ 
+</ion-content>

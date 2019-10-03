@@ -1,0 +1,18 @@
+<!--Module worked by Anto Rupak-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Rules and Regulation</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+
+<div>
+  <ion-card  *ngFor="let c of ruleJson"> 
+    <ion-card-content [innerHTML]='c.RuleDescription'></ion-card-content>
+ 
+  </ion-card>
+  <div *ngIf='statusrules'><ion-card><ion-card-content>No rules and regulation applied for this instrument.</ion-card-content></ion-card> </div>
+ 
+</div>
+ 
+</ion-content>

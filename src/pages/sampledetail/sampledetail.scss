@@ -1,0 +1,46 @@
+page-sampledetail {
+    ion-select {
+        height: 35px;
+        font-size: 1.2rem;
+        width: 100%;
+        font-weight: bold;
+        text-align: left;
+          max-width: 100%;
+          border: 1px solid rgb(0, 0, 0);
+        
+      } 
+      [col-2] {
+        padding: 5px;
+        align-self: flex-end;
+    }
+    [col-3] {
+      padding: 5px;
+      text-align-last: center;
+    }
+      ion-textarea{
+        border: 1px solid rgb(0, 0, 0);
+      }
+  
+      ::placeholder{
+        color: black;
+      }
+
+      .timer{
+        font-size: xx-large;
+    
+        width: 100%;
+        text-align: center;
+    
+    }
+    .row {
+
+      align-items: center;
+  }
+    .timer1{
+      font-size: small;
+      font-weight: bold;
+      width: 100%;
+      text-align: center;
+  
+  }
+}

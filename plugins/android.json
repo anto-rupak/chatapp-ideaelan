@@ -1,0 +1,83 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "com-badrit-base64": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-actionsheet": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-calendar": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-datepicker": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-device-name": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-firebase": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-androidx": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-fingerprint-aio": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    },
+    "cordova-plugin-streaming-media": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-cocoapod-supportx": {
+      "PACKAGE_NAME": "com.ideaelan.ieinfinity"
+    }
+  }
+}
