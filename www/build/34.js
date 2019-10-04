@@ -1,14 +1,14 @@
 webpackJsonp([34],{
 
-/***/ 824:
+/***/ 826:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboarddetailPageModule", function() { return DashboarddetailPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FacilitiesPageModule", function() { return FacilitiesPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dashboarddetail__ = __webpack_require__(541);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__facilities__ = __webpack_require__(543);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var DashboarddetailPageModule = /** @class */ (function () {
-    function DashboarddetailPageModule() {
+var FacilitiesPageModule = /** @class */ (function () {
+    function FacilitiesPageModule() {
     }
-    DashboarddetailPageModule = __decorate([
+    FacilitiesPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__dashboarddetail__["a" /* DashboarddetailPage */],
+                __WEBPACK_IMPORTED_MODULE_2__facilities__["a" /* FacilitiesPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__dashboarddetail__["a" /* DashboarddetailPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__facilities__["a" /* FacilitiesPage */]),
             ],
         })
-    ], DashboarddetailPageModule);
-    return DashboarddetailPageModule;
+    ], FacilitiesPageModule);
+    return FacilitiesPageModule;
 }());
 
-//# sourceMappingURL=dashboarddetail.module.js.map
+//# sourceMappingURL=facilities.module.js.map
 
 /***/ })
 

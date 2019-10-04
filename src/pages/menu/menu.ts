@@ -123,9 +123,10 @@ export class MenuPage {
         { title: 'My Reservations', pageName: 'AllreservationPage', icon: 'assets/icon/my-reserv-wt.png', index: 7 },
         { title: 'My Supplies', pageName: 'AllsuppliesPage', icon: 'assets/icon/my-reserv-wt.png', index: 14 },
         { title: 'My Dashboard', pageName: 'DashboardPage', icon: 'assets/icon/my-dashboard.png', index: 5 },
-        { title: 'Notification', pageName: 'NotificationPage', icon: 'assets/icon/notification.png', index: 10 },
+     //   { title: 'Notification', pageName: 'NotificationPage', icon: 'assets/icon/notification.png', index: 10 },
         { title: 'Scanner', pageName: 'ScannerPage', icon: 'assets/icon/scan.png', index: 6 },
-        { title: 'Logout', pageName: 'HomePage', icon: 'assets/icon/logout.png', index: 11 }];
+       // { title: 'Logout', pageName: 'HomePage', icon: 'assets/icon/logout.png', index: 11 }
+      ];
       } else if (this.roleType === "super") {
         this.rootPage = this.pageType;
 
@@ -141,7 +142,7 @@ export class MenuPage {
           { title: 'Facility Dashboard', pageName: 'DashboardPage', icon: 'assets/icon/facility-dashboard.png', index: 5 },
           //  { title: 'Lab Dashboard', pageName: 'LabDashboardPage', icon: 'assets/icon/dashboard-wt.png', index: 9 },
           { title: 'Scanner', pageName: 'ScannerPage', icon: 'assets/icon/scan.png', index: 6 },
-          { title: 'Logout', pageName: 'HomePage', icon: 'assets/icon/logout.png', index: 11 }
+        //  { title: 'Logout', pageName: 'HomePage', icon: 'assets/icon/logout.png', index: 11 }
         ];
 
       } else if (this.roleType === "admin") {
@@ -158,9 +159,9 @@ export class MenuPage {
           { title: 'Supplies', pageName: 'SuppliesPage', icon: 'assets/icon/sample-sub-req.png', index: 13 },
           { title: 'My Supplies', pageName: 'AllsuppliesPage', icon: 'assets/icon/my-reserv-wt.png', index: 14 },
           { title: 'Facility Dashboard', pageName: 'DashboardPage', icon: 'assets/icon/facility-dashboard.png', index: 5 },
-          { title: 'Notification', pageName: 'NotificationPage', icon: 'assets/icon/notification.png', index: 10 },
+         // { title: 'Notification', pageName: 'NotificationPage', icon: 'assets/icon/notification.png', index: 10 },
           { title: 'Scanner', pageName: 'ScannerPage', icon: 'assets/icon/scan.png', index: 6 },
-          { title: 'Logout', pageName: 'HomePage', icon: 'assets/icon/logout.png', index: 11 }
+        //  { title: 'Logout', pageName: 'HomePage', icon: 'assets/icon/logout.png', index: 11 }
         ];
       } else if (this.roleType === "labAdmin") {
 
@@ -180,9 +181,9 @@ export class MenuPage {
           { title: 'My Supplies', pageName: 'AllsuppliesPage', icon: 'assets/icon/my-reserv-wt.png', index: 14 },
           { title: 'My Dashboard', pageName: 'DashboardPage', icon: 'assets/icon/my-dashboard.png', index: 5 },
           //  { title: 'Facility Dashboard', pageName: 'DashboardPage', icon: 'assets/icon/facility-dashboard.png', index: 5 },
-          { title: 'Notification', pageName: 'NotificationPage', icon: 'assets/icon/notification.png', index: 10 },
+        //  { title: 'Notification', pageName: 'NotificationPage', icon: 'assets/icon/notification.png', index: 10 },
           { title: 'Scanner', pageName: 'ScannerPage', icon: 'assets/icon/scan.png', index: 6 },
-          { title: 'Logout', pageName: 'HomePage', icon: 'assets/icon/logout.png', index: 11 }
+       //   { title: 'Logout', pageName: 'HomePage', icon: 'assets/icon/logout.png', index: 11 }
         ];
       } else if (this.roleType === "providerAdmin") {
 
@@ -203,9 +204,9 @@ export class MenuPage {
 
           //    { title: 'Sample Submission', pageName: 'SamplesubmissionPage', icon: 'assets/icon/my-dashboard.png', index: 12 },
           //    { title: 'Lab Dashboard', pageName: 'LabDashboardPage', icon: 'assets/icon/dashboard-wt.png', index: 9 },
-          { title: 'Notification', pageName: 'NotificationPage', icon: 'assets/icon/notification.png', index: 10 },
+      //    { title: 'Notification', pageName: 'NotificationPage', icon: 'assets/icon/notification.png', index: 10 },
           { title: 'Scanner', pageName: 'ScannerPage', icon: 'assets/icon/scan.png', index: 6 },
-          { title: 'Logout', pageName: 'HomePage', icon: 'assets/icon/logout.png', index: 11 }
+       //   { title: 'Logout', pageName: 'HomePage', icon: 'assets/icon/logout.png', index: 11 }
         ];
       }
     });
@@ -336,7 +337,7 @@ export class MenuPage {
       }
         break;
       case 11: {
-        this.presentConfirm();
+      //  this.presentConfirm();
       }
         break;
       case 12: {
@@ -380,7 +381,7 @@ export class MenuPage {
     }
   }
 
-  //Modified by Anto Rupak & Sumit Rajpal
+  /*//Modified by Anto Rupak & Sumit Rajpal
   presentConfirm() {
     //Modified by Anto Rupak
     this.storage.get('InsitutionName').then((val) => {
@@ -417,7 +418,7 @@ export class MenuPage {
       ]
     });
     alert.present();
-  }
+  }*/
   isActive(page: PageInterface) {
     if (this.nav.getActive().name === page.pageName) {
       return false;

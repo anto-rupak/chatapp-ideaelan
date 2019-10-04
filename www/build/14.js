@@ -1,14 +1,14 @@
 webpackJsonp([14],{
 
-/***/ 841:
+/***/ 840:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SamplesubmissionPageModule", function() { return SamplesubmissionPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScannerPageModule", function() { return ScannerPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__samplesubmission__ = __webpack_require__(238);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__scanner__ = __webpack_require__(546);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var SamplesubmissionPageModule = /** @class */ (function () {
-    function SamplesubmissionPageModule() {
+var ScannerPageModule = /** @class */ (function () {
+    function ScannerPageModule() {
     }
-    SamplesubmissionPageModule = __decorate([
+    ScannerPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__samplesubmission__["a" /* SamplesubmissionPage */],
+                __WEBPACK_IMPORTED_MODULE_2__scanner__["a" /* ScannerPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__samplesubmission__["a" /* SamplesubmissionPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__scanner__["a" /* ScannerPage */])
             ],
         })
-    ], SamplesubmissionPageModule);
-    return SamplesubmissionPageModule;
+    ], ScannerPageModule);
+    return ScannerPageModule;
 }());
 
-//# sourceMappingURL=samplesubmission.module.js.map
+//# sourceMappingURL=scanner.module.js.map
 
 /***/ })
 

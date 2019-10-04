@@ -1,14 +1,14 @@
 webpackJsonp([33],{
 
-/***/ 826:
+/***/ 862:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FacilitiesPageModule", function() { return FacilitiesPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InboxPageModule", function() { return InboxPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__facilities__ = __webpack_require__(543);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__inbox__ = __webpack_require__(545);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var FacilitiesPageModule = /** @class */ (function () {
-    function FacilitiesPageModule() {
+var InboxPageModule = /** @class */ (function () {
+    function InboxPageModule() {
     }
-    FacilitiesPageModule = __decorate([
+    InboxPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__facilities__["a" /* FacilitiesPage */],
+                __WEBPACK_IMPORTED_MODULE_2__inbox__["a" /* InboxPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__facilities__["a" /* FacilitiesPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__inbox__["a" /* InboxPage */]),
             ],
         })
-    ], FacilitiesPageModule);
-    return FacilitiesPageModule;
+    ], InboxPageModule);
+    return InboxPageModule;
 }());
 
-//# sourceMappingURL=facilities.module.js.map
+//# sourceMappingURL=inbox.module.js.map
 
 /***/ })
 

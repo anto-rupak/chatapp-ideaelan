@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegulationPageModule", function() { return RegulationPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__regulation__ = __webpack_require__(866);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__regulation__ = __webpack_require__(868);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var RegulationPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 866:
+/***/ 868:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -115,7 +115,7 @@ var RegulationPage = /** @class */ (function () {
     };
     RegulationPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-regulation',template:/*ion-inline-start:"F:\abey_new_mobile_app\src\pages\regulation\regulation.html"*/'<!--Module worked by Anto Rupak-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Rules and Regulation</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content >\n\n\n\n<div>\n\n  <ion-card  *ngFor="let c of ruleJson"> \n\n    <ion-card-content [innerHTML]=\'c.RuleDescription\'></ion-card-content>\n\n \n\n  </ion-card>\n\n  <div *ngIf=\'statusrules\'><ion-card><ion-card-content>No rules and regulation applied for this instrument.</ion-card-content></ion-card> </div>\n\n \n\n</div>\n\n \n\n</ion-content>'/*ion-inline-end:"F:\abey_new_mobile_app\src\pages\regulation\regulation.html"*/,
+            selector: 'page-regulation',template:/*ion-inline-start:"C:\Users\Admin\Desktop\Chat App Abey\src\pages\regulation\regulation.html"*/'<!--Module worked by Anto Rupak-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Rules and Regulation</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content >\n\n\n\n<div>\n\n  <ion-card  *ngFor="let c of ruleJson"> \n\n    <ion-card-content [innerHTML]=\'c.RuleDescription\'></ion-card-content>\n\n \n\n  </ion-card>\n\n  <div *ngIf=\'statusrules\'><ion-card><ion-card-content>No rules and regulation applied for this instrument.</ion-card-content></ion-card> </div>\n\n \n\n</div>\n\n \n\n</ion-content>'/*ion-inline-end:"C:\Users\Admin\Desktop\Chat App Abey\src\pages\regulation\regulation.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */]])
     ], RegulationPage);

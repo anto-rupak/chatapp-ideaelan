@@ -76,6 +76,10 @@ export class AllchatsPage {
 
 
   }
+
+  generalChatPage(){
+    this.navCtrl.push('GeneralChatPage');
+  }
   async forAdmin() {
     let returnArr = [];
     let news = [];

@@ -1,14 +1,14 @@
 webpackJsonp([40],{
 
-/***/ 822:
+/***/ 849:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActualusagecounterPageModule", function() { return ActualusagecounterPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllchatsPageModule", function() { return AllchatsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actualusagecounter__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__allchats__ = __webpack_require__(547);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ActualusagecounterPageModule = /** @class */ (function () {
-    function ActualusagecounterPageModule() {
+var AllchatsPageModule = /** @class */ (function () {
+    function AllchatsPageModule() {
     }
-    ActualusagecounterPageModule = __decorate([
+    AllchatsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__actualusagecounter__["a" /* ActualusagecounterPage */],
+                __WEBPACK_IMPORTED_MODULE_2__allchats__["a" /* AllchatsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__actualusagecounter__["a" /* ActualusagecounterPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__allchats__["a" /* AllchatsPage */])
             ],
         })
-    ], ActualusagecounterPageModule);
-    return ActualusagecounterPageModule;
+    ], AllchatsPageModule);
+    return AllchatsPageModule;
 }());
 
-//# sourceMappingURL=actualusagecounter.module.js.map
+//# sourceMappingURL=allchats.module.js.map
 
 /***/ })
 

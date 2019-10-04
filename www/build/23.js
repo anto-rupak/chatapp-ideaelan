@@ -1,14 +1,16 @@
 webpackJsonp([23],{
 
-/***/ 832:
+/***/ 863:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalPageModule", function() { return ModalPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NaviPageModule", function() { return NaviPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__navi__ = __webpack_require__(539);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_image_loader__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng_lazyload_image__ = __webpack_require__(549);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +20,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ModalPageModule = /** @class */ (function () {
-    function ModalPageModule() {
+
+
+var NaviPageModule = /** @class */ (function () {
+    function NaviPageModule() {
     }
-    ModalPageModule = __decorate([
+    NaviPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__modal__["a" /* ModalPage */],
+                __WEBPACK_IMPORTED_MODULE_2__navi__["a" /* NaviPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__modal__["a" /* ModalPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__navi__["a" /* NaviPage */]),
+                __WEBPACK_IMPORTED_MODULE_3_ionic_image_loader__["b" /* IonicImageLoader */],
+                __WEBPACK_IMPORTED_MODULE_4_ng_lazyload_image__["a" /* LazyLoadImageModule */].forRoot({
+                    preset: __WEBPACK_IMPORTED_MODULE_4_ng_lazyload_image__["b" /* intersectionObserverPreset */]
+                })
             ],
         })
-    ], ModalPageModule);
-    return ModalPageModule;
+    ], NaviPageModule);
+    return NaviPageModule;
 }());
 
-//# sourceMappingURL=modal.module.js.map
+//# sourceMappingURL=navi.module.js.map
 
 /***/ })
 

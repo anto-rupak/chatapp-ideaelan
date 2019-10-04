@@ -1,14 +1,14 @@
 webpackJsonp([32],{
 
-/***/ 861:
+/***/ 829:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InboxPageModule", function() { return InboxPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InboxviewPageModule", function() { return InboxviewPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__inbox__ = __webpack_require__(545);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__inboxview__ = __webpack_require__(232);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var InboxPageModule = /** @class */ (function () {
-    function InboxPageModule() {
+var InboxviewPageModule = /** @class */ (function () {
+    function InboxviewPageModule() {
     }
-    InboxPageModule = __decorate([
+    InboxviewPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__inbox__["a" /* InboxPage */],
+                __WEBPACK_IMPORTED_MODULE_2__inboxview__["a" /* InboxviewPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__inbox__["a" /* InboxPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__inboxview__["a" /* InboxviewPage */]),
             ],
         })
-    ], InboxPageModule);
-    return InboxPageModule;
+    ], InboxviewPageModule);
+    return InboxviewPageModule;
 }());
 
-//# sourceMappingURL=inbox.module.js.map
+//# sourceMappingURL=inboxview.module.js.map
 
 /***/ })
 
